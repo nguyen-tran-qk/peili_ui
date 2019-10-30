@@ -7,7 +7,9 @@ class PeiliProvider extends React.Component {
     super(props);
 
     this.state = {
-      sidebarOpen: false
+      sidebarOpen: false,
+      email: "",
+      password: ""
     };
   }
 
@@ -18,12 +20,22 @@ class PeiliProvider extends React.Component {
       sidebarOpen: !currentState.sidebarOpen
     }));
   };
+
+  //handle input change
+  handleChange = event => {
+    const { name, value } = event.target;
+
+    this.setState({
+      [name]: value
+    });
+  };
   render() {
     return (
       <PeiliContext.Provider
         value={{
           ...this.state,
-          handleSidebar: this.handleSidebar
+          handleSidebar: this.handleSidebar,
+          handleChange: this.handleChange
         }}
       >
         {this.props.children}
