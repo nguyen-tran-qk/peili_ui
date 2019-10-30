@@ -1,0 +1,29 @@
+@import "../../index.scss";
+
+.sidebar {
+  position: fixed;
+  top: 52px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $mainGrey;
+  z-index: 1;
+  transition: $mainTransition;
+
+  .sidebar-link {
+    display: block;
+    text-transform: capitalize;
+    font-size: 1.3rem;
+    color: $mainBlack;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    background: transparent;
+    transition: $mainTransition;
+
+    &:hover {
+      color: $mainWhite;
+      padding-left: 2rem;
+      background: $secondaryColor;
+    }
+  }
+}

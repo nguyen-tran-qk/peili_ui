@@ -13,6 +13,7 @@ class PeiliProvider extends React.Component {
 
   //handle sidebar button toggle
   handleSidebar = () => {
+    console.log("handleSidebar clicked");
     this.setState(currentState => ({
       sidebarOpen: !currentState.sidebarOpen
     }));
@@ -20,11 +21,10 @@ class PeiliProvider extends React.Component {
   render() {
     return (
       <PeiliContext.Provider
-        value={
-          "hello"
-          //  ...this.state,
-          //  handleSidebar: this.handleSidebar
-        }
+        value={{
+          ...this.state,
+          handleSidebar: this.handleSidebar
+        }}
       >
         {this.props.children}
       </PeiliContext.Provider>

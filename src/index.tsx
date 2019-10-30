@@ -6,10 +6,14 @@ import * as serviceWorker from "./serviceWorker";
 
 import { BrowserRouter } from "react-router-dom";
 
+import { PeiliProvider } from "./context/context";
+
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <PeiliProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </PeiliProvider>,
   document.getElementById("root")
 );
 
