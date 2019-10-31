@@ -1,0 +1,50 @@
+@import "../../index.scss";
+
+.rewards {
+  background: $mainWhite;
+  max-width: 250px;
+
+  .rewards-title {
+    background: $mainBlack;
+    color: $mainWhite;
+    font-size: 4rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: normal;
+    padding: 1.5rem 0;
+  }
+  .rewards-info {
+    padding: 1rem;
+    color: $mainBlack;
+
+    .rewards-subtitle {
+      margin-bottom: 1rem;
+    }
+
+    .rewards-exp {
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .rewards-button {
+      width: 100%;
+      height: 40px;
+      background: transparent;
+      border-radius: 7px;
+      color: $mainBlack;
+      text-transform: uppercase;
+      letter-spacing: $mainSpacing;
+      font-size: 1.1rem;
+      border: 1px solid $mainBlack;
+      outline: none;
+      cursor: pointer;
+      transition: $mainTransition;
+
+      &:hover {
+        background: $mainBlack;
+        color: $mainWhite;
+      }
+    }
+  }
+}

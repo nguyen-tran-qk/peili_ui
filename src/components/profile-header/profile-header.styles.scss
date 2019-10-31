@@ -1,0 +1,58 @@
+@import "../../index.scss";
+
+.profile-header {
+  position: relative;
+  display: flex;
+  padding: 3rem 2rem 2rem 2rem;
+  background: $mainWhite;
+
+  .cog-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+  }
+
+  .profile-img-container {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      border-radius: 50%;
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .profile-info {
+    padding-left: 2rem;
+
+    .name {
+      text-transform: uppercase;
+      letter-spacing: $mainSpacing;
+      margin-bottom: 0.5rem;
+    }
+
+    .email {
+      color: $darkGrey;
+    }
+
+    .exp {
+      background: $mainOrange;
+      display: block;
+      width: 100px;
+      height: 40px;
+      border-radius: 30px;
+      color: $mainWhite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+  }
+}

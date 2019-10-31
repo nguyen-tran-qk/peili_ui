@@ -28,7 +28,7 @@ const OrganizationPage = () => {
               Dignissimos quam vero eius libero laboriosam sunt minima, amet
               eligendi aliquid harum!
             </p>
-            <Link to="/" className="card-link">
+            <Link to="/organizations" className="card-link">
               see more <FaArrowRight className="card-link-icon" />
             </Link>
           </div>
@@ -47,7 +47,7 @@ const OrganizationPage = () => {
               Dignissimos quam vero eius libero laboriosam sunt minima, amet
               eligendi aliquid harum!
             </p>
-            <Link to="/" className="card-link">
+            <Link to="/organizations" className="card-link">
               see more <FaArrowRight className="card-link-icon" />
             </Link>
           </div>
@@ -66,7 +66,7 @@ const OrganizationPage = () => {
               Dignissimos quam vero eius libero laboriosam sunt minima, amet
               eligendi aliquid harum!
             </p>
-            <Link to="/" className="card-link">
+            <Link to="/organizations" className="card-link">
               see more <FaArrowRight className="card-link-icon" />
             </Link>
           </div>

@@ -12,6 +12,8 @@ $secondaryColor: #40216f;
 $mainWhite: white;
 $mainBlack: #1f292e;
 $mainGrey: #f4f4f4;
+$darkGrey: #afafaf;
+$mainOrange: #e4a500;
 
 $mainTransition: all 0.3s linear;
 $mainSpacing: 2px;
@@ -102,6 +104,11 @@ ul {
   &:hover {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   }
+}
+
+.profile-active {
+  color: $mainBlack !important;
+  font-weight: bold;
 }
 
 body {
