@@ -78,6 +78,32 @@ ul {
   text-transform: uppercase;
 }
 
+.form-container {
+  width: 80%;
+  max-width: 500px;
+  background: $mainWhite;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 10px solid $primaryColor;
+  border-left: 1px solid $primaryColor;
+  border-right: 1px solid $primaryColor;
+  border-bottom: 5px solid $primaryColor;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: $mainTransition;
+
+  .form {
+    width: 100%;
+    padding: 0 4rem;
+  }
+
+  &:hover {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",

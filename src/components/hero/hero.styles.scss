@@ -1,0 +1,16 @@
+@import "../../index.scss";
+
+.hero {
+  width: 100%;
+  height: calc(50vh - 52px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .hero-title {
+    text-transform: uppercase;
+    color: $mainWhite;
+    letter-spacing: 5px;
+    font-size: 3rem;
+  }
+}

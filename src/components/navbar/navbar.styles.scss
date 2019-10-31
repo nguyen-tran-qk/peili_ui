@@ -26,6 +26,23 @@
   }
 
   .nav-content {
+    height: 100%;
+
+    .nav-links {
+      display: none;
+
+      .nav-link {
+        color: white;
+        margin-left: 20px;
+        font-weight: bold;
+        transition: $mainTransition;
+
+        &:hover {
+          text-decoration-line: inherit;
+        }
+      }
+    }
+
     .nav-icon {
       font-size: 1.3rem;
       color: $mainWhite;
@@ -35,6 +52,18 @@
       &:hover {
         transform: scale(1.2);
       }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav-content {
+    .nav-icon {
+      display: none;
+    }
+
+    .nav-links {
+      display: flex;
     }
   }
 }

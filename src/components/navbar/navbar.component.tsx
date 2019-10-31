@@ -20,6 +20,23 @@ const Navbar = () => (
           </Link>
           <div className="nav-content">
             <FaBars className="nav-icon" onClick={handleSidebar} />
+            <div className="nav-links">
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+
+              <Link to="/organizations" className="nav-link">
+                Organizations
+              </Link>
+
+              <Link to="/profile" className="nav-link">
+                Profile
+              </Link>
+
+              <Link to="/login" className="nav-link">
+                Login
+              </Link>
+            </div>
           </div>
         </nav>
       );
