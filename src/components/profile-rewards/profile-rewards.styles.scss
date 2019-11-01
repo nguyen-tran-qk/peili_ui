@@ -3,6 +3,11 @@
 .rewards {
   background: $mainWhite;
   max-width: 250px;
+  transition: $mainTransition;
+
+  &:hover {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
 
   .rewards-title {
     background: $mainBlack;

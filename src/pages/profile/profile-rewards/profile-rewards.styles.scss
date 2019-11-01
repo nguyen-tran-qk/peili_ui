@@ -20,13 +20,15 @@
 
   .rewards-group {
     padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+  }
+}
 
-    .rewards-pair {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-    }
+@media screen and (min-width: 768px) {
+  .rewards-group {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

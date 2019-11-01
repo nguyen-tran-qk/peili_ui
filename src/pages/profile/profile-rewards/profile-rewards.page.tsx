@@ -19,18 +19,12 @@ const ProfileRewards = () => {
         </Link>
       </div>
       <div className="rewards-group">
-        <div className="rewards-pair">
-          <Rewards />
-          <Rewards />
-        </div>
-        <div className="rewards-pair">
-          <Rewards />
-          <Rewards />
-        </div>
-        <div className="rewards-pair">
-          <Rewards />
-          <Rewards />
-        </div>
+        <Rewards />
+        <Rewards />
+        <Rewards />
+        <Rewards />
+        <Rewards />
+        <Rewards />
       </div>
     </div>
   );
