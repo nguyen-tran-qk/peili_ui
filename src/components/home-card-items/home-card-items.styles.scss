@@ -1,0 +1,51 @@
+@import "../../index.scss";
+
+.home-card-items {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: $mainWhite;
+  border-radius: 10px;
+  transition: $mainTransition;
+  margin-bottom: 1.5rem;
+
+  .home-card-item-info {
+    padding: 2rem;
+    flex: 0 0 60%;
+
+    .home-card-items-title {
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .home-card-items-date {
+      text-transform: capitalize;
+      color: $darkGrey;
+    }
+  }
+
+  .home-card-item-img-container {
+    flex: 0 0 40%;
+    position: relative;
+
+    img {
+      width: 100%;
+      display: block;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .heart-icon {
+      font-size: 1.5rem;
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      color: red;
+      cursor: pointer;
+    }
+  }
+
+  &:hover {
+    box-shadow: $mainBoxShadow;
+  }
+}

@@ -1,0 +1,46 @@
+@import "../../index.scss";
+
+.home-card-header {
+  width: 100%;
+  margin: 0 auto;
+  background: $mainWhite;
+  border-radius: 5px;
+  transition: $mainTransition;
+  margin-bottom: 1.5rem;
+
+  .home-card-header-img-container {
+    width: 100%;
+    position: relative;
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .heart-icon {
+      font-size: 2rem;
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      cursor: pointer;
+    }
+  }
+
+  .home-card-header-info {
+    padding: 2rem;
+
+    .home-card-header-title {
+      color: $mainBlack;
+      margin-bottom: 1rem;
+    }
+
+    .home-card-header-date {
+      text-transform: capitalize;
+      color: $darkGrey;
+    }
+  }
+
+  &:hover {
+    box-shadow: $mainBoxShadow;
+  }
+}

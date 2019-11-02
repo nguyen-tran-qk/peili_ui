@@ -17,6 +17,7 @@ $mainOrange: #e4a500;
 
 $mainTransition: all 0.3s linear;
 $mainSpacing: 2px;
+$mainBoxShadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 
 //basic element setup
 a {
@@ -117,4 +118,5 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: $mainGrey;
 }
