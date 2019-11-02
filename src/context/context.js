@@ -29,6 +29,7 @@ class PeiliProvider extends React.Component {
       [name]: value
     });
   };
+
   render() {
     return (
       <PeiliContext.Provider

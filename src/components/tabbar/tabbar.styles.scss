@@ -1,0 +1,51 @@
+@import "../../index.scss";
+
+.tabbar {
+  background: $mainWhite;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  .tabbar-item {
+    background: $primaryColor;
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: $mainTransition;
+
+    .tabbar-icon {
+      color: $mainWhite;
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    .tabbar-title {
+      text-transform: uppercase;
+      letter-spacing: $mainSpacing;
+      color: $mainWhite;
+      font-weight: normal;
+    }
+
+    &:hover {
+      //background-color: rgba(118, 74, 188, 0.8);
+      opacity: 0.8;
+    }
+  }
+}
+
+.tabbar-active.tabbar-item {
+  border-bottom: 2px solid $mainWhite;
+
+  .tabbar-title {
+    font-weight: bold;
+  }
+}

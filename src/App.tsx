@@ -11,6 +11,9 @@ import ProfileSettings from "./pages/profile/profile-settings/profile-settings.p
 import RegisterPage from "./pages/register/register.page";
 import Error404Page from "./pages/404/404.page";
 
+import TabBar from "./components/tabbar/tabbar.components";
+import TabbarMargin from "./components/tabbar/tabbar-margin.components";
+
 import { Route, Switch } from "react-router-dom";
 
 const App: React.FC = () => {
@@ -28,6 +31,8 @@ const App: React.FC = () => {
         <Route exact path="/register" component={RegisterPage} />
         <Route component={Error404Page} />
       </Switch>
+      <TabbarMargin />
+      <TabBar />
     </div>
   );
 };
