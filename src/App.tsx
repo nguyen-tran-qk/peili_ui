@@ -10,6 +10,7 @@ import ProfileRewards from "./pages/profile/profile-rewards/profile-rewards.page
 import ProfileSettings from "./pages/profile/profile-settings/profile-settings.page";
 import RegisterPage from "./pages/register/register.page";
 import Error404Page from "./pages/404/404.page";
+import TestsPage from "./pages/tests/tests.page";
 
 import TabBar from "./components/tabbar/tabbar.components";
 import TabbarMargin from "./components/tabbar/tabbar-margin.components";
@@ -29,6 +30,7 @@ const App: React.FC = () => {
         <Route path="/profile/settings" component={ProfileSettings} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/register" component={RegisterPage} />
+        <Route path="/tests" component={TestsPage} />
         <Route component={Error404Page} />
       </Switch>
       <TabbarMargin />

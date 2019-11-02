@@ -1,0 +1,45 @@
+@import "../../index.scss";
+
+.test-levels {
+  padding: 1rem;
+  background: $lightDarkGrey;
+  border-radius: 10px;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  margin-right: 1.5rem;
+
+  .test-levels-title {
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+  }
+
+  .test-levels-exp {
+    margin-bottom: 1rem;
+  }
+
+  .test-levels-img-container {
+    text-align: center;
+    padding: 1rem 0;
+
+    img {
+      width: 50px;
+    }
+  }
+}
+
+.doneBcg.test-levels {
+  background: $mainWhite;
+}
+
+.processing.test-levels {
+  background: $mainWhite;
+
+  .test-levels-img-container {
+    padding: 5px 0;
+    img {
+      width: 70px;
+    }
+  }
+}

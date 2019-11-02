@@ -6,7 +6,7 @@ import { FaHome, FaSignal, FaRegCommentAlt, FaUser } from "react-icons/fa";
 import { Link, withRouter } from "react-router-dom";
 
 const TabBar = (props: any) => {
-  console.log(props.location.pathname);
+  //console.log(props.location.pathname);
   const path = props.location.pathname;
   return (
     <div className="tabbar">
@@ -19,9 +19,9 @@ const TabBar = (props: any) => {
       <div
         className={`tabbar-item ${path === "/test" ? "tabbar-active" : null}`}
       >
-        <Link to="/test">
+        <Link to="/tests">
           <FaSignal className="tabbar-icon" />
-          <h3 className="tabbar-title">test</h3>
+          <h3 className="tabbar-title">tests</h3>
         </Link>
       </div>
       <div
