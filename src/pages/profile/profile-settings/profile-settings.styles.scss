@@ -1,0 +1,42 @@
+@import "../../../index.scss";
+
+.profile-settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .profile-row {
+    padding: 1.5rem;
+    height: 100px;
+    border-bottom: 1px solid $darkGrey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .profile-row-title {
+      text-transform: uppercase;
+      font-size: 1.3rem;
+      color: $mainBlack;
+      letter-spacing: $mainSpacing;
+    }
+
+    .profile-row-value {
+      color: $primaryColor;
+      font-weight: normal;
+      padding-top: 0.5rem;
+    }
+  }
+
+  #notification {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .notification-icon {
+      color: $primaryColor;
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+  }
+}

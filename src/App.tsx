@@ -7,6 +7,7 @@ import LoginPage from "./pages/login/login.page";
 import OrganizationPage from "./pages/organizations/organizations.page";
 import ProfilePage from "./pages/profile/profile.page";
 import ProfileRewards from "./pages/profile/profile-rewards/profile-rewards.page";
+import ProfileSettings from "./pages/profile/profile-settings/profile-settings.page";
 import RegisterPage from "./pages/register/register.page";
 import Error404Page from "./pages/404/404.page";
 
@@ -22,6 +23,7 @@ const App: React.FC = () => {
         <Route path="/organizations" component={OrganizationPage} />
         <Route exact path="/profile" component={ProfilePage} />
         <Route path="/profile/rewards" component={ProfileRewards} />
+        <Route path="/profile/settings" component={ProfileSettings} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/register" component={RegisterPage} />
         <Route component={Error404Page} />

@@ -15,7 +15,7 @@ class PeiliProvider extends React.Component {
 
   //handle sidebar button toggle
   handleSidebar = () => {
-    console.log("handleSidebar clicked");
+    //console.log("handleSidebar clicked");
     this.setState(currentState => ({
       sidebarOpen: !currentState.sidebarOpen
     }));

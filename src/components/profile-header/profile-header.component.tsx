@@ -1,14 +1,17 @@
 import React from "react";
 import "./profile-header.styles.scss";
 
-import { FaCog, FaArrowRight } from "react-icons/fa";
+import { FaCog } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
 
 const ProfileHeader = () => {
   return (
     <div className="profile-header">
-      <FaCog className="cog-icon" />
+      <Link to="/profile/settings">
+        <FaCog className="cog-icon" />
+      </Link>
+
       <div className="profile-img-container">
         <img
           src="https://randomuser.me/api/portraits/med/men/75.jpg"
