@@ -7,46 +7,50 @@ import thirdIcon from "../../assets/images/third.svg";
 
 import { FaAngleRight } from "react-icons/fa";
 
+import { Link } from "react-router-dom";
+
 const ProfileStrengths = (props: any) => {
-  const { title, winnerTitle, secondTitle, thirdTitle } = props;
+  const { id, title, archive } = props;
   return (
-    <div className="profile-strengths">
-      <h3 className="strength-title">{title}</h3>
-      <div className="strength-icons">
-        {/* winner */}
-        <div className="icon-group">
-          <div className="icon-container">
-            <img src={winnerIcon} alt="winner" />
+    <Link to={`/profile/${id}`}>
+      <div className="profile-strengths">
+        <h3 className="strength-title">{title}</h3>
+        <div className="strength-icons">
+          {/* winner */}
+          <div className="icon-group">
+            <div className="icon-container">
+              <img src={winnerIcon} alt="winner" />
+            </div>
+            <p>{archive[0].title}</p>
           </div>
-          <p>{winnerTitle}</p>
-        </div>
-        {/* end of winner */}
+          {/* end of winner */}
 
-        {/* second */}
-        <div className="icon-group">
-          <div className="icon-container">
-            <img src={secondIcon} alt="second" />
+          {/* second */}
+          <div className="icon-group">
+            <div className="icon-container">
+              <img src={secondIcon} alt="second" />
+            </div>
+            <p>{archive[1].title}</p>
           </div>
-          <p>{secondTitle}</p>
-        </div>
-        {/* end of second */}
+          {/* end of second */}
 
-        {/* second */}
-        <div className="icon-group">
-          <div className="icon-container">
-            <img src={thirdIcon} alt="third" />
+          {/* second */}
+          <div className="icon-group">
+            <div className="icon-container">
+              <img src={thirdIcon} alt="third" />
+            </div>
+            <p>{archive[2].title}</p>
           </div>
-          <p>{thirdTitle}</p>
+          {/* end of second */}
         </div>
-        {/* end of second */}
+        <p className="strengths-info">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+          consequuntur nam porro ea omnis perferendis vel veritatis laborum iste
+          tempora!
+        </p>
+        <FaAngleRight className="strengths-detail-icon" />
       </div>
-      <p className="strengths-info">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-        consequuntur nam porro ea omnis perferendis vel veritatis laborum iste
-        tempora!
-      </p>
-      <FaAngleRight className="strengths-detail-icon" />
-    </div>
+    </Link>
   );
 };
 

@@ -1,10 +1,14 @@
 import React from "react";
 import "./profile-rewards.styles.scss";
 
+import productImg from "../../assets/images/img-product.png";
+
 const Rewards = () => {
   return (
     <div className="rewards">
-      <h1 className="rewards-title">elixia</h1>
+      <div className="rewards-img-container">
+        <img src={productImg} alt="product" />
+      </div>
       <div className="rewards-info">
         <p className="rewards-subtitle">ELIXIA exclusive 3-month membership</p>
         <p className="rewards-exp">100 EXP</p>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./profile-header.styles.scss";
 
-import { FaCog } from "react-icons/fa";
+import settingImg from "../../assets/images/settings.png";
 
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,7 @@ const ProfileHeader = () => {
   return (
     <div className="profile-header">
       <Link to="/profile/settings">
-        <FaCog className="cog-icon" />
+        <img src={settingImg} alt="settings" className="settings-icon" />
       </Link>
 
       <div className="profile-img-container">

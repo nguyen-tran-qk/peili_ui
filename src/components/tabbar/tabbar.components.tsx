@@ -17,7 +17,7 @@ const TabBar = (props: any) => {
         </Link>
       </div>
       <div
-        className={`tabbar-item ${path === "/test" ? "tabbar-active" : null}`}
+        className={`tabbar-item ${path === "/tests" ? "tabbar-active" : null}`}
       >
         <Link to="/tests">
           <FaSignal className="tabbar-icon" />
@@ -36,9 +36,7 @@ const TabBar = (props: any) => {
       </div>
       <div
         className={`tabbar-item ${
-          path === "/profile" ||
-          path === "/profile/rewards" ||
-          path === "/profile/settings"
+          path === "/profile" || path.includes("/profile/")
             ? "tabbar-active"
             : null
         }`}

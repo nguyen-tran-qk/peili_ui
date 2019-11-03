@@ -7,7 +7,7 @@ const Hero = (props: any) => {
     <div
       className="hero"
       style={{
-        background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${image}) center/cover fixed no-repeat`
+        background: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url(${image}) center/cover no-repeat`
       }}
     >
       <h1 className="hero-title">{title}</h1>

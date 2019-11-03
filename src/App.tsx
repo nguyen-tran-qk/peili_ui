@@ -8,6 +8,7 @@ import OrganizationPage from "./pages/organizations/organizations.page";
 import ProfilePage from "./pages/profile/profile.page";
 import ProfileRewards from "./pages/profile/profile-rewards/profile-rewards.page";
 import ProfileSettings from "./pages/profile/profile-settings/profile-settings.page";
+import ProfileDetail from "./pages/profile/profile-detail/profile-detail.page";
 import RegisterPage from "./pages/register/register.page";
 import Error404Page from "./pages/404/404.page";
 import TestsPage from "./pages/tests/tests.page";
@@ -28,6 +29,8 @@ const App: React.FC = () => {
         <Route exact path="/profile" component={ProfilePage} />
         <Route path="/profile/rewards" component={ProfileRewards} />
         <Route path="/profile/settings" component={ProfileSettings} />
+        <Route path="/profile/:id" component={ProfileDetail} />
+
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/register" component={RegisterPage} />
         <Route path="/tests" component={TestsPage} />
