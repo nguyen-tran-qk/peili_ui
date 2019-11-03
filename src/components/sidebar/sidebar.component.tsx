@@ -1,23 +1,20 @@
-import React from "react";
-import "./sidebar.styles.scss";
+import React from 'react';
+import './sidebar.styles.scss';
 
-import { PeiliConsumer } from "../../context/context";
-import { Link } from "react-router-dom";
+import { PeiliConsumer } from '../../context/context';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
     <PeiliConsumer>
       {(value: any) => {
-        // console.log("value", value);
         const { handleSidebar, sidebarOpen } = value;
 
         return (
           <aside
             className="sidebar"
             style={{
-              transform: `${
-                sidebarOpen ? "translateX(0)" : "translateX(-100%)"
-              }`
+              transform: `${sidebarOpen ? 'translateX(0)' : 'translateX(-100%)'}`,
             }}
           >
             <ul>
@@ -27,29 +24,17 @@ const Sidebar = () => {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/organizations"
-                  className="sidebar-link"
-                  onClick={handleSidebar}
-                >
+                <Link to="/organizations" className="sidebar-link" onClick={handleSidebar}>
                   Organizations
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/profile"
-                  className="sidebar-link"
-                  onClick={handleSidebar}
-                >
+                <Link to="/profile" className="sidebar-link" onClick={handleSidebar}>
                   Profile
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/login"
-                  className="sidebar-link"
-                  onClick={handleSidebar}
-                >
+                <Link to="/login" className="sidebar-link" onClick={handleSidebar}>
                   Login
                 </Link>
               </li>

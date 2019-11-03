@@ -1,7 +1,7 @@
-import React from "react";
-import "./form-input.styles.scss";
+import React from 'react';
+import './form-input.styles.scss';
 
-import { PeiliConsumer } from "../../context/context";
+import { PeiliConsumer } from '../../context/context';
 
 const FormInput = ({ ...otherProps }) => (
   <PeiliConsumer>

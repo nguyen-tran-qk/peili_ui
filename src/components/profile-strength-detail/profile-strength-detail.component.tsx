@@ -1,24 +1,20 @@
-import React from "react";
-import "./profile-strength-detail.styles.scss";
+import React from 'react';
+import './profile-strength-detail.styles.scss';
 
-import { PeiliConsumer } from "../../context/context";
+import { PeiliConsumer } from '../../context/context';
 
-import { withRouter } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 
-import StrengthItem from "./profile-strength-detail-item.component";
+import StrengthItem from './profile-strength-detail-item.component';
 
 const ProfileStrengthDetail = (props: any) => {
-  //console.log(props.match.params.id);
   return (
     <PeiliConsumer>
       {(value: any) => {
         const { strengthsData } = value;
         let id = props.match.params.id;
         id = parseInt(id);
-        const filteredStrength = strengthsData.find(
-          (item: any) => item.id === id
-        );
-        //console.log(filteredStrength);
+        const filteredStrength = strengthsData.find((item: any) => item.id === id);
         return (
           <div className="profile-strength-detail">
             {filteredStrength.archive.map((item: any, index: any) => {

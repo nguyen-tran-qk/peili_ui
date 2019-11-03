@@ -1,19 +1,18 @@
-import React from "react";
-import "./profile.styles.scss";
+import React from 'react';
+import './profile.styles.scss';
 
-import ProfileHeader from "../../components/profile-header/profile-header.component";
+import ProfileHeader from '../../components/profile-header/profile-header.component';
 
-import ProfileStrengths from "../../components/profile-strengths/profile-strengths.component";
+import ProfileStrengths from '../../components/profile-strengths/profile-strengths.component';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import { PeiliConsumer } from "../../context/context";
+import { PeiliConsumer } from '../../context/context';
 
 const ProfilePage = () => {
   return (
     <PeiliConsumer>
       {(value: any) => {
-        //console.log(value);
         const { strengthsData } = value;
         return (
           <div className="profile-page">
@@ -27,14 +26,7 @@ const ProfilePage = () => {
               </Link>
             </div>
             {strengthsData.map((item: any) => {
-              return (
-                <ProfileStrengths
-                  key={item.id}
-                  id={item.id}
-                  title={item.title}
-                  archive={item.archive}
-                />
-              );
+              return <ProfileStrengths key={item.id} id={item.id} title={item.title} archive={item.archive} />;
             })}
             {/* <ProfileStrengths
               title="carrer"

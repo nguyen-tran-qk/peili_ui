@@ -1,9 +1,9 @@
-import React from "react";
-import "./profile-strengths.styles.scss";
+import React from 'react';
+import './profile-strengths.styles.scss';
 
-import { FaAngleRight } from "react-icons/fa";
+import { FaAngleRight } from 'react-icons/fa';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const ProfileStrengths = (props: any) => {
   const { id, title, archive } = props;
@@ -40,9 +40,8 @@ const ProfileStrengths = (props: any) => {
           {/* end of second */}
         </div>
         <p className="strengths-info">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-          consequuntur nam porro ea omnis perferendis vel veritatis laborum iste
-          tempora!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique consequuntur nam porro ea omnis perferendis vel veritatis
+          laborum iste tempora!
         </p>
         <FaAngleRight className="strengths-detail-icon" />
       </div>

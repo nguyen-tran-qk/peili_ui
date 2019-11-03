@@ -1,8 +1,8 @@
-import React from "react";
-import "./questions-bar.styles.scss";
+import React from 'react';
+import './questions-bar.styles.scss';
 
-import progessImg from "../../../assets/images/ProgressBar.png";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import progessImg from '../../../assets/images/ProgressBar.png';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const QuestionsBar = () => {
   return (

@@ -1,7 +1,7 @@
-import React from "react";
-import "./profile-detail.styles.scss";
+import React from 'react';
+import './profile-detail.styles.scss';
 
-import ProfileStrengthDetail from "../../../components/profile-strength-detail/profile-strength-detail.component";
+import ProfileStrengthDetail from '../../../components/profile-strength-detail/profile-strength-detail.component';
 
 const ProfileDetail = () => {
   return (

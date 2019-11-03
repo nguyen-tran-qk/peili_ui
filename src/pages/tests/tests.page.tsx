@@ -1,7 +1,7 @@
-import React from "react";
-import "./tests.styles.scss";
+import React from 'react';
+import './tests.styles.scss';
 
-import TestLevels from "../../components/test-levels/test-levels.component";
+import TestLevels from '../../components/test-levels/test-levels.component';
 
 const Tests = () => {
   return (

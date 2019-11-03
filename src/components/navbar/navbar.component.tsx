@@ -1,12 +1,12 @@
-import React from "react";
-import "./navbar.styles.scss";
+import React from 'react';
+import './navbar.styles.scss';
 
-import { Link } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import { FaBars } from 'react-icons/fa';
 
-import logo from "../../assets/images/logo.png";
+import logo from '../../assets/images/logo.png';
 
-import { PeiliConsumer } from "../../context/context";
+import { PeiliConsumer } from '../../context/context';
 
 const Navbar = () => (
   <PeiliConsumer>

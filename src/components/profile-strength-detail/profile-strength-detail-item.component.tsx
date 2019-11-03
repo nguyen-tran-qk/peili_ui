@@ -1,15 +1,14 @@
-import React from "react";
-import "./profile-strength-detail-item.styles.scss";
+import React from 'react';
+import './profile-strength-detail-item.styles.scss';
 
 // import winnerIcon from "../../assets/images/winner.jpeg";
 // import secondIcon from "../../assets/images/second.svg";
 // import thirdIcon from "../../assets/images/third.svg";
-import briefcaseIcon from "../../assets/images/briefcase.png";
-import pieIcon from "../../assets/images/pie-chart.png";
+import briefcaseIcon from '../../assets/images/briefcase.png';
+import pieIcon from '../../assets/images/pie-chart.png';
 
 const StrengthItem = (props: any) => {
   const { strength } = props;
-  //console.log(strength);
   return (
     <div className="strength-item">
       <div className="strength-item-header">

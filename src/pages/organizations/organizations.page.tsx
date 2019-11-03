@@ -1,15 +1,15 @@
-import React from "react";
-import "./organizations.styles.scss";
+import React from 'react';
+import './organizations.styles.scss';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import Hero from "../../components/hero/hero.component";
-import organizationHeroImage from "../../assets/images/organ.jpg";
+import Hero from '../../components/hero/hero.component';
+import organizationHeroImage from '../../assets/images/organ.jpg';
 
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight } from 'react-icons/fa';
 
-import nuorisoseuratImage from "../../assets/images/logo-nuori.png";
-import vamosImage from "../../assets/images/logo-vamos.png";
+import nuorisoseuratImage from '../../assets/images/logo-nuori.png';
+import vamosImage from '../../assets/images/logo-vamos.png';
 
 const OrganizationPage = () => {
   return (
@@ -24,8 +24,7 @@ const OrganizationPage = () => {
           <div className="card-info">
             <h3 className="card-title">Nuorisoseurat</h3>
             <p className="card-subtitle">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Dignissimos quam vero eius libero laboriosam sunt minima, amet
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos quam vero eius libero laboriosam sunt minima, amet
               eligendi aliquid harum!
             </p>
             <Link to="/organizations" className="card-link">
@@ -43,8 +42,7 @@ const OrganizationPage = () => {
           <div className="card-info">
             <h3 className="card-title">Vamos</h3>
             <p className="card-subtitle">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Dignissimos quam vero eius libero laboriosam sunt minima, amet
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos quam vero eius libero laboriosam sunt minima, amet
               eligendi aliquid harum!
             </p>
             <Link to="/organizations" className="card-link">
@@ -62,8 +60,7 @@ const OrganizationPage = () => {
           <div className="card-info">
             <h3 className="card-title">R3</h3>
             <p className="card-subtitle">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Dignissimos quam vero eius libero laboriosam sunt minima, amet
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos quam vero eius libero laboriosam sunt minima, amet
               eligendi aliquid harum!
             </p>
             <Link to="/organizations" className="card-link">
