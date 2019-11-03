@@ -11,6 +11,9 @@ import { PeiliConsumer } from '../../context/context';
 const Navbar = () => (
   <PeiliConsumer>
     {(value: any) => {
+      if (!value) {
+        return null;
+      }
       const { handleSidebar } = value;
       return (
         <nav className="navbar">

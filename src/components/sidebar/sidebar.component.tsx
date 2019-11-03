@@ -8,6 +8,9 @@ const Sidebar = () => {
   return (
     <PeiliConsumer>
       {(value: any) => {
+        if (!value) {
+          return null;
+        }
         const { handleSidebar, sidebarOpen } = value;
 
         return (
