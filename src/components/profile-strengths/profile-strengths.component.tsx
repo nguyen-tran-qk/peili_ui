@@ -1,10 +1,6 @@
 import React from "react";
 import "./profile-strengths.styles.scss";
 
-import winnerIcon from "../../assets/images/winner.jpeg";
-import secondIcon from "../../assets/images/second.svg";
-import thirdIcon from "../../assets/images/third.svg";
-
 import { FaAngleRight } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
@@ -19,7 +15,7 @@ const ProfileStrengths = (props: any) => {
           {/* winner */}
           <div className="icon-group">
             <div className="icon-container">
-              <img src={winnerIcon} alt="winner" />
+              <img src={archive[0].image} alt="winner" />
             </div>
             <p>{archive[0].title}</p>
           </div>
@@ -28,7 +24,7 @@ const ProfileStrengths = (props: any) => {
           {/* second */}
           <div className="icon-group">
             <div className="icon-container">
-              <img src={secondIcon} alt="second" />
+              <img src={archive[1].image} alt="second" />
             </div>
             <p>{archive[1].title}</p>
           </div>
@@ -37,7 +33,7 @@ const ProfileStrengths = (props: any) => {
           {/* second */}
           <div className="icon-group">
             <div className="icon-container">
-              <img src={thirdIcon} alt="third" />
+              <img src={archive[2].image} alt="third" />
             </div>
             <p>{archive[2].title}</p>
           </div>

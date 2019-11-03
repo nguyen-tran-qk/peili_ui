@@ -1,0 +1,42 @@
+@import "../../../index.scss";
+
+.questions-bar {
+  background: $mainGrey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 65px;
+  padding: 1rem;
+  position: fixed;
+  left: 0;
+  bottom: 70px;
+
+  .question-bar-icons {
+    display: block;
+    width: 43px;
+    height: 43px;
+    border: 1px solid $darkGrey;
+    color: $darkGrey;
+    font-size: 2rem;
+    padding: 6px;
+    cursor: pointer;
+  }
+
+  .questions-bar-progress {
+    text-align: center;
+
+    h3 {
+      color: $darkGrey;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    img {
+      display: block;
+      width: 90%;
+      height: 15px;
+      margin: 0 auto;
+    }
+  }
+}

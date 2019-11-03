@@ -13,7 +13,7 @@ const ProfilePage = () => {
   return (
     <PeiliConsumer>
       {(value: any) => {
-        console.log(value);
+        //console.log(value);
         const { strengthsData } = value;
         return (
           <div className="profile-page">

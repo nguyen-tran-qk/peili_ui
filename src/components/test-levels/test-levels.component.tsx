@@ -5,6 +5,8 @@ import doneImg from "../../assets/images/done.png";
 import lockedImg from "../../assets/images/locked.png";
 import processingImg from "../../assets/images/processing.png";
 
+import { Link } from "react-router-dom";
+
 const TestLevels = (props: any) => {
   const { level, exp, status } = props;
   let image = null;
@@ -23,13 +25,15 @@ const TestLevels = (props: any) => {
       break;
   }
   return (
-    <div className={`test-levels ${bcg}`}>
-      <h2 className="test-levels-title">level {level}</h2>
-      <p className="test-levels-exp">Answer questions to get {exp} EXP</p>
-      <div className="test-levels-img-container">
-        <img src={image} alt="done" />
+    <Link to="/questions">
+      <div className={`test-levels ${bcg}`}>
+        <h2 className="test-levels-title">level {level}</h2>
+        <p className="test-levels-exp">Answer questions to get {exp} EXP</p>
+        <div className="test-levels-img-container">
+          <img src={image} alt="done" />
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
