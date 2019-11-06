@@ -1,10 +1,10 @@
-import React from "react";
-import "./profile-rewards.styles.scss";
+import React from 'react';
+import './profile-rewards.styles.scss';
 
-import ProfileHeader from "../../../components/profile-header/profile-header.component";
-import Rewards from "../../../components/profile-rewards/profile-rewards.component";
+import ProfileHeader from '../../../components/profile-header/profile-header.component';
+import Rewards from '../../../components/profile-rewards/profile-rewards.component';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const ProfileRewards = () => {
   return (

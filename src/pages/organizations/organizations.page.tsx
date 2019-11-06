@@ -1,12 +1,12 @@
-import React from "react";
-import "./organizations.styles.scss";
+import React from 'react';
+import './organizations.styles.scss';
 
-import Hero from "../../components/hero/hero.component";
-import OrganizationCard from "../../components/organization-card/organization-card.component";
+import Hero from '../../components/hero/hero.component';
+import OrganizationCard from '../../components/organization-card/organization-card.component';
 
-import organizationHeroImage from "../../assets/images/organ.jpg";
+import organizationHeroImage from '../../assets/images/organ.jpg';
 
-import { PeiliConsumer } from "../../context/context";
+import { PeiliConsumer } from '../../context/context';
 
 const OrganizationPage = () => {
   return (

@@ -1,5 +1,5 @@
-import React from "react";
-import "./feedback.styles.scss";
+import React from 'react';
+import './feedback.styles.scss';
 
 const FeedBackPage = () => {
   return (

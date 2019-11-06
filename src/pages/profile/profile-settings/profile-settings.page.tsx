@@ -1,14 +1,10 @@
-import React, { useState } from "react";
-import "./profile-settings.styles.scss";
+import React, { useState } from 'react';
+import './profile-settings.styles.scss';
 
-import { FaToggleOn, FaToggleOff } from "react-icons/fa";
+import { FaToggleOn, FaToggleOff } from 'react-icons/fa';
 
 const ProfileSettings = (props: any) => {
-  const {
-    firstName = "Michael",
-    lastName = "Jackson",
-    email = "hello@gmail.com"
-  } = props;
+  const { firstName = 'Michael', lastName = 'Jackson', email = 'hello@gmail.com' } = props;
 
   const [notification, setNotification] = useState(true);
 

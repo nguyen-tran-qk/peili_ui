@@ -21,5 +21,10 @@
         "member-ordering": false,
         "jsx-no-lambda": false,
         "no-console": false
+    },
+    "linterOptions": {
+        "exclude": [
+            "**/**.js"
+        ]
     }
 }

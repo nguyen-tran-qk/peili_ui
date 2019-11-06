@@ -1,9 +1,9 @@
-import React from "react";
-import "./profile-header.styles.scss";
+import React from 'react';
+import './profile-header.styles.scss';
 
-import settingImg from "../../assets/images/settings.png";
+import settingImg from '../../assets/images/settings.png';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const ProfileHeader = () => {
   return (
@@ -13,10 +13,7 @@ const ProfileHeader = () => {
       </Link>
 
       <div className="profile-img-container">
-        <img
-          src="https://randomuser.me/api/portraits/med/men/75.jpg"
-          alt="avatar"
-        />
+        <img src="https://randomuser.me/api/portraits/med/men/75.jpg" alt="avatar" />
       </div>
       <div className="profile-info">
         <h2 className="name">michael jackson</h2>

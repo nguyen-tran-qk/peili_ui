@@ -1,7 +1,7 @@
-import React from "react";
-import "./profile-rewards.styles.scss";
+import React from 'react';
+import './profile-rewards.styles.scss';
 
-import productImg from "../../assets/images/img-product.png";
+import productImg from '../../assets/images/img-product.png';
 
 const Rewards = () => {
   return (

@@ -1,31 +1,31 @@
-import React from "react";
-import "./test-levels.styles.scss";
+import React from 'react';
+import './test-levels.styles.scss';
 
-import doneImg from "../../assets/images/done.png";
-import lockedImg from "../../assets/images/locked.png";
-import processingImg from "../../assets/images/processing.png";
+import doneImg from '../../assets/images/done.png';
+import lockedImg from '../../assets/images/locked.png';
+import processingImg from '../../assets/images/processing.png';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const TestLevels = (props: any) => {
   const { level, exp, status } = props;
   let image = null;
-  let bcg = "";
-  let link = "";
+  let bcg = '';
+  let link = '';
   switch (status) {
-    case "done":
+    case 'done':
       image = doneImg;
-      bcg = "doneBcg";
-      link = "/questions-review";
+      bcg = 'doneBcg';
+      link = '/questions-review';
       break;
-    case "locked":
+    case 'locked':
       image = lockedImg;
-      link = "/tests";
+      link = '/tests';
       break;
     default:
       image = processingImg;
-      bcg = "processing";
-      link = "/questions";
+      bcg = 'processing';
+      link = '/questions';
       break;
   }
   return (

@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import Navbar from "../navbar/navbar.component";
-import Sidebar from "../sidebar/sidebar.component";
+import Navbar from '../navbar/navbar.component';
+import Sidebar from '../sidebar/sidebar.component';
 
 const Header = () => (
   <header>
