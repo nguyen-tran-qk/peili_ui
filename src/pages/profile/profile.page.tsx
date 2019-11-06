@@ -36,24 +36,6 @@ const ProfilePage = () => {
                 />
               );
             })}
-            {/* <ProfileStrengths
-              title="carrer"
-              winnerTitle="realistic"
-              secondTitle="investigate"
-              thirdTitle="artistic"
-            />
-            <ProfileStrengths
-              title="ability"
-              winnerTitle="problem solving"
-              secondTitle="creativity"
-              thirdTitle="cooperation"
-            />
-            <ProfileStrengths
-              title="personality"
-              winnerTitle="rational thinking"
-              secondTitle="seeking confidence"
-              thirdTitle="experimenting"
-            /> */}
           </div>
         );
       }}

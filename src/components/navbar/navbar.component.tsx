@@ -4,7 +4,7 @@ import "./navbar.styles.scss";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo1.png";
 
 import { PeiliConsumer } from "../../context/context";
 

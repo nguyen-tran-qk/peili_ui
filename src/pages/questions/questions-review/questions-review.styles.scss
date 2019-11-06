@@ -1,0 +1,31 @@
+@import "../../../index.scss";
+
+.questions-review {
+  padding: 1.5rem;
+  text-align: center;
+
+  .questions-review-title {
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    letter-spacing: $mainSpacing;
+  }
+
+  .question-review-img-container {
+    position: relative;
+    width: 100%;
+
+    .pie {
+      width: 200px;
+      position: absolute;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+    }
+  }
+
+  .questions-review-img {
+    display: block;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+}

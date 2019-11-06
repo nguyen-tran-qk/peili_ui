@@ -2,12 +2,14 @@
 
 .sidebar {
   position: fixed;
-  top: 52px;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+
   background: $mainGrey;
-  z-index: 1;
+  z-index: 2;
   transition: $mainTransition;
 
   .sidebar-link {
@@ -24,6 +26,27 @@
       color: $mainWhite;
       padding-left: 2rem;
       background: $secondaryColor;
+    }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    background: $primaryColor;
+    height: 52px;
+    padding: 10px 20px;
+
+    img {
+      width: 32px;
+      height: 32px;
+      display: block;
+      margin-right: 10px;
+    }
+
+    h1 {
+      color: $mainWhite;
+      letter-spacing: $mainSpacing;
+      font-weight: bold;
     }
   }
 }

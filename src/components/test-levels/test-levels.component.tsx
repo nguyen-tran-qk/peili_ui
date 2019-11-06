@@ -11,21 +11,25 @@ const TestLevels = (props: any) => {
   const { level, exp, status } = props;
   let image = null;
   let bcg = "";
+  let link = "";
   switch (status) {
     case "done":
       image = doneImg;
       bcg = "doneBcg";
+      link = "/questions-review";
       break;
     case "locked":
       image = lockedImg;
+      link = "/tests";
       break;
     default:
       image = processingImg;
       bcg = "processing";
+      link = "/questions";
       break;
   }
   return (
-    <Link to="/questions">
+    <Link to={link}>
       <div className={`test-levels ${bcg}`}>
         <h2 className="test-levels-title">level {level}</h2>
         <p className="test-levels-exp">Answer questions to get {exp} EXP</p>

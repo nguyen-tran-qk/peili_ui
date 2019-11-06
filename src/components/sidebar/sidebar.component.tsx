@@ -3,6 +3,7 @@ import "./sidebar.styles.scss";
 
 import { PeiliConsumer } from "../../context/context";
 import { Link } from "react-router-dom";
+import logo from "../../assets/images/logo1.png";
 
 const Sidebar = () => {
   return (
@@ -20,6 +21,10 @@ const Sidebar = () => {
               }`
             }}
           >
+            <Link to="/" className="logo" onClick={handleSidebar}>
+              <img src={logo} alt="logo" />
+              <h1>Peili</h1>
+            </Link>
             <ul>
               <li>
                 <Link to="/" className="sidebar-link" onClick={handleSidebar}>
@@ -35,6 +40,16 @@ const Sidebar = () => {
                   Organizations
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/tests"
+                  className="sidebar-link"
+                  onClick={handleSidebar}
+                >
+                  Tests
+                </Link>
+              </li>
+
               <li>
                 <Link
                   to="/profile"

@@ -9,6 +9,8 @@
   flex-direction: column;
   margin-bottom: 1.5rem;
   margin-right: 1.5rem;
+  color: $mainBlack;
+  cursor: pointer;
 
   .test-levels-title {
     text-transform: capitalize;
@@ -37,9 +39,9 @@
   background: $mainWhite;
 
   .test-levels-img-container {
-    padding: 5px 0;
+    padding: 2.5px 0;
     img {
-      width: 70px;
+      width: 60px;
     }
   }
 }

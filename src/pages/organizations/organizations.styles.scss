@@ -8,50 +8,6 @@
   flex-wrap: wrap;
   background: $mainGrey;
   padding: 2rem;
-
-  .organization-card {
-    background: $mainWhite;
-    display: flex;
-    border-radius: 5px;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-    margin-bottom: 2rem;
-
-    .card-img-container {
-      width: 40%;
-      display: flex;
-      align-items: center;
-
-      img {
-        display: block;
-        width: 100%;
-      }
-    }
-
-    .card-info {
-      width: 60%;
-      padding: 1rem 0.5rem;
-      color: $mainBlack;
-
-      .card-title {
-        text-transform: capitalize;
-        font-size: 1.3rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .card-subtitle {
-        margin-bottom: 2rem;
-      }
-
-      .card-link {
-        text-transform: capitalize;
-
-        .card-link-icon {
-          display: inline-block;
-          padding-top: 2px;
-        }
-      }
-    }
-  }
 }
 
 @media screen and (min-width: 768px) {

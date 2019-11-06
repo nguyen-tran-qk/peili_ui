@@ -11,8 +11,28 @@
     margin-bottom: 3rem;
   }
 
-  img {
-    display: block;
+  .questions-content-img-container {
+    position: relative;
     width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .questions-content-see-answers {
+      position: absolute;
+      top: 130px;
+      left: 50%;
+      text-transform: uppercase;
+      color: $mainBlack;
+      transform: translateX(-50%);
+      text-decoration: underline;
+
+      .questions-content-see-answers-icon {
+        display: inline-block;
+        padding-top: 3px;
+      }
+    }
   }
 }

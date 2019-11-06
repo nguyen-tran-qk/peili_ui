@@ -1,6 +1,7 @@
 import React from "react";
 
 import strengthsData from "./strengthsData";
+import organizationsData from "./organizationsData";
 
 const PeiliContext = React.createContext();
 
@@ -12,7 +13,8 @@ class PeiliProvider extends React.Component {
       sidebarOpen: false,
       email: "",
       password: "",
-      strengthsData
+      strengthsData,
+      organizationsData
     };
   }
 
