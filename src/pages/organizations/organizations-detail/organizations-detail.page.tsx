@@ -1,11 +1,12 @@
-import React from "react";
-import "./organizations-detail.styles.scss";
-import organImage from "../../../assets/images/organ.jpg";
+import React from 'react';
+import './organizations-detail.styles.scss';
+import organImage from '../../../assets/images/organ.jpg';
 
-import { withRouter } from "react-router-dom";
-import { PeiliConsumer } from "../../../context/context";
+import { withRouter } from 'react-router-dom';
+import { PeiliConsumer } from '../../../context/context';
 
-import { FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import { FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+import OrganizationEvent from '../../../components/organization-event/organization-event.component';
 
 const OrganizationsDetailPage = (props: any) => {
   return (
@@ -14,9 +15,7 @@ const OrganizationsDetailPage = (props: any) => {
         const { organizationsData } = value;
         let id = props.match.params.id;
         id = parseInt(id);
-        const organizationFiltered = organizationsData.find(
-          (item: any) => item.id === id
-        );
+        const organizationFiltered = organizationsData.find((item: any) => item.id === id);
         //console.log(organizationFiltered);
         return (
           <div className="organizations-detail">
@@ -24,11 +23,7 @@ const OrganizationsDetailPage = (props: any) => {
               <img src={organImage} alt="organization" />
             </div>
             <div className="organizations-detail-header">
-              <img
-                src={organizationFiltered.logo}
-                alt="logo"
-                className="organizations-detail-logo"
-              />
+              <img src={organizationFiltered.logo} alt="logo" className="organizations-detail-logo" />
               <h2>{organizationFiltered.name}</h2>
               <p>
                 <FaMapMarkerAlt /> {organizationFiltered.address}
@@ -39,10 +34,9 @@ const OrganizationsDetailPage = (props: any) => {
             </div>
             <div className="organizations-detail-events">
               <h3>Next events</h3>
+              <OrganizationEvent />
             </div>
-            <p className="organizations-detail-description">
-              {organizationFiltered.description}
-            </p>
+            <p className="organizations-detail-description">{organizationFiltered.description}</p>
           </div>
         );
       }}
