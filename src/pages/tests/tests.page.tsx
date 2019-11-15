@@ -3,7 +3,7 @@ import './tests.styles.scss';
 
 import TestLevels from '../../components/test-levels/test-levels.component';
 
-import QuestionContextProvider from "../../context/QuestionContext";
+import QuestionContextProvider from '../../context/QuestionContext';
 
 const Tests = () => {
   return (

@@ -1,8 +1,8 @@
-import React from "react";
-import "./organization-card.styles.scss";
+import React from 'react';
+import './organization-card.styles.scss';
 
-import { Link } from "react-router-dom";
-import { FaArrowRight } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
 
 const OrganizationCard = (props: any) => {
   const { organization } = props;

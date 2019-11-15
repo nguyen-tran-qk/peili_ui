@@ -1,9 +1,9 @@
-import React from "react";
-import "./questions-review.styles.scss";
+import React from 'react';
+import './questions-review.styles.scss';
 
-import review1Img from "../../../assets/images/question-review1.png";
-import review2Img from "../../../assets/images/question-review2.png";
-import pieImg from "../../../assets/images/pie.png";
+import review1Img from '../../../assets/images/question-review1.png';
+import review2Img from '../../../assets/images/question-review2.png';
+import pieImg from '../../../assets/images/pie.png';
 
 const QuestionsReview = () => {
   return (

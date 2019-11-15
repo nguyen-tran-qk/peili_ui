@@ -9,7 +9,7 @@ import { QuestionContext } from '../../../context/QuestionContext';
 
 const QuestionsContent = () => {
   const { selectedQuestion } = useContext(QuestionContext);
-  let styleImg = {
+  const styleImg = {
     width: '100%',
     margin: '0',
   };

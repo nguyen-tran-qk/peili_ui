@@ -16,7 +16,7 @@ const OrganizationsDetailPage = (props: any) => {
         let id = props.match.params.id;
         id = parseInt(id);
         const organizationFiltered = organizationsData.find((item: any) => item.id === id);
-        //console.log(organizationFiltered);
+        // console.log(organizationFiltered);
         return (
           <div className="organizations-detail">
             <div className="organizations-detail-img-header-container">
