@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import { Route, Switch } from 'react-router-dom';
 
 import Header from './components/header/header.component';
 import HomePage from './pages/home/home.page';
@@ -16,11 +16,9 @@ import TestsPage from './pages/tests/tests.page';
 // import FeedBackPage from "./pages/feedback/feedback.page";
 import QuestionsPage from './pages/questions/questions.page';
 import QuestionsReviewPage from './pages/questions/questions-review/questions-review.page';
-
 import TabBar from './components/tabbar/tabbar.components';
-import TabbarMargin from './components/tabbar/tabbar-margin.components';
 
-import { Route, Switch } from 'react-router-dom';
+import './App.scss';
 
 const App: React.FC = () => {
   return (
@@ -43,7 +41,6 @@ const App: React.FC = () => {
         <Route exact path="/questions-review" component={QuestionsReviewPage} />
         <Route component={Error404Page} />
       </Switch>
-      <TabbarMargin />
       <TabBar />
     </div>
   );
