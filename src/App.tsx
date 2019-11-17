@@ -41,6 +41,7 @@ const App: React.FC = () => {
         <Route exact path="/quiz-results" component={QuizResults} />
         <Route component={Error404Page} />
       </Switch>
+
       <TabBar />
     </div>
   );
