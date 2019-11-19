@@ -2,12 +2,16 @@
 
 import React, { useState, useEffect } from 'react';
 import './register.styles.scss';
-import logoImage from '../../assets/images/logo1.png';
+import logoImage from '../../assets/images/peili-icon.png';
+import boyAvatar from '../../assets/images/boy-avatar.png';
+import FormInput from '../../components/form-input/form-input.component';
+import skillsIcon from '../../assets/images/skills-icon.png';
 
 const RegisterPage = () => {
   const [showPage, setShowPage] = useState(false);
   const [pageIndex, setPageIndex] = useState(0);
-  const maxPageIndex = 4;
+  const [name, setName] = useState('user');
+  const maxPageIndex = 3;
 
   useEffect(() => {
     setTimeout(() => {
@@ -26,7 +30,16 @@ const RegisterPage = () => {
       setPageIndex(pageIndex - 1);
     }
   };
-  
+
+  const renderAgeOptions = () => {
+    let result = '';
+    for (let i = 0; i < 14; i++) {
+      const age = 16 + i;
+      result += `<option value={${age}}>${age}</option>`;
+    }
+    return result;
+  };
+
   return (
     <div className="oboarding-page">
       <div className={`walkthrough${showPage ? ' show' : ''}`}>
@@ -35,7 +48,6 @@ const RegisterPage = () => {
           <span className={`dot${pageIndex === 1 ? ' active' : ''}`} />
           <span className={`dot${pageIndex === 2 ? ' active' : ''}`} />
           <span className={`dot${pageIndex === 3 ? ' active' : ''}`} />
-          <span className={`dot${pageIndex === 4 ? ' active' : ''}`} />
         </div>
         <div className="walkthrough-body">
           <ul className="screens animate">
@@ -43,66 +55,58 @@ const RegisterPage = () => {
               <div className="media logo">
                 <img alt="peili-logo" className="logo" src={logoImage} />
               </div>
-              <h3>
-                Welcome to Peili
-              </h3>
+              <h3>Welcome to Peili</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                It's amazing you are here!
+                <br />
+                We aim to help you find your strengths and make the best career choices.
+                <br />
+                So let's get started!
               </p>
+              <div className="register-form">
+                <div className="register-form-group">
+                  <label>Firstly, how should we call you?</label>
+                  <FormInput placeholder="Your name" onChange={evt => setName(evt.target.value)} maxLength={40} />
+                </div>
+              </div>
             </li>
             <li className={`screen${pageIndex === 1 ? ' active' : ''}`}>
-              <div className="media books">
-                <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/book_icon_1.png" />
-                <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/book_icon_2.png" />
-                <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/book_icon_3.png" />
+              <div className="media person">
+                <img alt="icon" className="icon" src={boyAvatar} />
               </div>
-              <h3>
-                Data and File Management
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-              </p>
+              <h3>Hello {name}</h3>
+              <p>To continue using Peili and exploring about yourself, you will need an account. Let's create one!</p>
+              <div className="register-form">
+                <div className="register-form-group">
+                  <label>An email to login</label>
+                  <FormInput placeholder="Your email" />
+                </div>
+                <div className="register-form-group">
+                  <label>A secure password</label>
+                  <FormInput placeholder="Your password" />
+                </div>
+                <div className="register-form-group age-select">
+                  <label>What's your age?</label>
+                  <select dangerouslySetInnerHTML={{ __html: renderAgeOptions() }}/>
+                </div>
+              </div>
             </li>
             <li className={`screen${pageIndex === 2 ? ' active' : ''}`}>
-              <div className="media bars">
-                <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/bar_icon_axis.png" />
-                <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/bar_icon_3.png" />
-                <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/bar_icon_2.png" />
-                <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/bar_icon_1.png" />
+              <div className="media skills">
+                <a hidden target="_blank" href="https://icons8.com">
+                  Cloud icon by Icons8
+                </a>
+                <img alt="icon" className="icon" src={skillsIcon} />
               </div>
-              <h3>
-                Analytics and Metrics
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-              </p>
+              <h3>Tell us more</h3>
+              <p>Select your interests and skills from the list below</p>
             </li>
             <li className={`screen${pageIndex === 3 ? ' active' : ''}`}>
-              <div className="media files">
-                <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/file_icon_1.png" />
-                <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/file_icon_2.png" />
-                <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/file_icon_3.png" />
-                <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/file_icon_4.png" />
-              </div>
-              <h3>
-                Reporting and Insights
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-              </p>
-            </li>
-            <li className={`screen${pageIndex === 4 ? ' active' : ''}`}>
               <div className="media comm">
                 <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/comm_icon_1.png" />
                 <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/comm_icon_2.png" />
               </div>
-              <h3>
-                Communications Tools
-              </h3>
+              <h3>Communications Tools</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
@@ -117,7 +121,9 @@ const RegisterPage = () => {
           </button>
         </div>
         <div className="walkthrough-footer">
-          <button className="button next-screen" onClick={nextPage}>Next</button>
+          <button className="button next-screen" onClick={nextPage}>
+            Next
+          </button>
           <button className="button finish close" disabled={true}>
             Finish
           </button>

@@ -5,27 +5,24 @@
 $module-font-size: 14px;
 $bezier: cubic-bezier(.25, .8, .25, 1);
 
-body {
-    #root .App {
-
-        &>header,
-        &>.tabbar {
-            display: none;
-        }
-    }
-}
-
 .oboarding-page {
     color: white;
     font-family: "Lato";
-    font-weight: light;
+    font-weight: lighter;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     overflow: hidden;
     background: linear-gradient(150deg, #64d8cb 0%, #64d8cb 50%, #26a69a 50%, #26a69a 100%);
+
+    &+.tabbar {
+        display: none;
+    }
 }
 
 // =================================================================================================
@@ -39,12 +36,12 @@ body {
     flex-direction: column;
     flex: 0 0 auto;
     font-size: $module-font-size;
-    height: 464px;
+    height: 80vh;
     overflow: hidden;
     opacity: 0;
     transition: opacity 0.4s $bezier, transform 0.4s $bezier, box-shadow 0.4s $bezier;
     transform: translateY(72px);
-    width: 280px;
+    width: 560px;
     z-index: 1000;
 
     @media screen and (max-width: 560px) {
@@ -68,14 +65,13 @@ body {
             align-self: stretch;
             background: none;
             border: 0;
-            margin-top: 40px;
             color: rgba(white, 0.25);
             cursor: pointer;
             flex: 0 0 auto;
             font-size: 24px;
             opacity: 1;
             outline: none;
-            padding: 16px;
+            margin: 56px 16px 16px;
             transform: scale(1);
             transition: transform 0.4s $bezier, color 0.4s $bezier, opacity 0.4s $bezier;
             z-index: 1000;
@@ -111,6 +107,79 @@ body {
             .screen {
                 position: absolute;
                 list-style-type: none;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                padding: 0 16px;
+
+                @media screen and (max-width: 560px) {
+                    padding: 0;
+                }
+
+                .register-form {
+                    margin-top: 64px;
+
+                    .register-form-group {
+                        &+.register-form-group {
+                            margin-top: 24px;
+                        }
+
+                        label {
+                            display: block;
+                            font-size: 16px;
+                            margin-bottom: 4px;
+                            text-align: left;
+                        }
+
+                        .form-input {
+                            color: #ffffff;
+
+                            &::placeholder {
+                                /* Chrome, Firefox, Opera, Safari 10.1+ */
+                                color: #ffffff;
+                                opacity: 0.6;
+                                /* Firefox */
+                            }
+
+                            &:-ms-input-placeholder {
+                                /* Internet Explorer 10-11 */
+                                color: #ffffff;
+                                opacity: 0.6;
+                            }
+
+                            &::-ms-input-placeholder {
+                                /* Microsoft Edge */
+                                color: #ffffff;
+                                opacity: 0.6;
+                            }
+                        }
+
+                        &.age-select {
+                            text-align: left;
+
+                            label {
+                                display: inline-block;
+                                margin-right: 16px;
+                            }
+
+                            select {
+                                background: rgba(255, 255, 255, .2);
+                                border: none;
+                                border-radius: 20px;
+                                color: #ffffff;
+                                font-size: 16px;
+                                width: 64px;
+                                height: 36px;
+                                outline: none;
+                                padding-left: 16px;
+
+                                * {
+                                    color: black;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -123,11 +192,12 @@ body {
         }
 
         h3 {
-            font-size: 16px;
+            font-size: 30px;
             line-height: 1.4em;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            
+            word-break: break-word;
+
             @media screen and (max-width: 560px) {
                 font-size: 24px;
             }
@@ -135,11 +205,11 @@ body {
 
         p {
             line-height: 1.6em;
-            font-size: 13px;
-            margin-top: 16px;
+            font-size: 18px;
+            margin: 16px 0;
             padding-top: 0;
             color: rgba(white, 0.8);
-            
+
             @media screen and (max-width: 560px) {
                 font-size: 16px;
             }
@@ -193,11 +263,11 @@ body {
             cursor: pointer;
 
             &:hover {
-                background: lighten(#5da3f2, 3%);
+                background: lighten(#00867d, 3%);
             }
 
             &:active {
-                background: #5da3f2;
+                background: #00867d;
             }
 
             &:disabled {
@@ -205,7 +275,7 @@ body {
             }
 
             &.finish {
-                background: #3e94f5;
+                background: #00867d;
                 position: absolute;
                 left: 0;
                 bottom: 0;
@@ -216,11 +286,11 @@ body {
                 transition: opacity 0.4s $bezier, background 0.4s $bezier, transform 0.4s $bezier;
 
                 &:hover {
-                    background: lighten(#3e94f5, 3%);
+                    background: lighten(#00867d, 3%);
                 }
 
                 &:active {
-                    background: #3e94f5;
+                    background: #00867d;
                 }
 
                 &.active {
@@ -259,42 +329,25 @@ body {
 
             &.logo {
                 .logo {
-                    margin-top: 20px;
+                    margin-top: 16px;
                     opacity: 0;
                     transform: translateY(-60px);
                     transition: opacity 0.4s $bezier, transform 0.4s $bezier;
-                    width: 80px;
+                    width: 100px;
                 }
             }
 
             .icon {
-                position: absolute;
                 opacity: 0;
                 transform: translateY(-30px);
                 transition: opacity 0.4s $bezier, transform 0.4s $bezier;
-                width: 132px;
-                left: 48px;
-                top: 32px;
+                width: 100px;
+                margin: 16px auto;
             }
 
-            &.bars {
+            &.skills {
                 .icon {
                     transform: translate(40px, 20px);
-
-                    &:nth-of-type(2) {
-                        transform: scale(0.25);
-                        transform-origin: 30% 54%;
-                    }
-
-                    &:nth-of-type(3) {
-                        transform: scale(0.25);
-                        transform-origin: 30% 40%;
-                    }
-
-                    &:nth-of-type(4) {
-                        transform: scale(0.25);
-                        transform-origin: 30% 26%;
-                    }
                 }
             }
 
@@ -318,12 +371,14 @@ body {
 
         .screen {
             opacity: 0;
+            z-index: 0;
             position: absolute;
             transform: translateX(-72px);
             transition: all 0.4s $bezier;
 
             &.active {
                 opacity: 1;
+                z-index: 99;
                 transform: translateX(0) scale(1);
                 transition-delay: 0.4s;
 
@@ -341,7 +396,7 @@ body {
                     &.logo {
 
                         .logo {
-                            opacity: 0.8;
+                            opacity: 1;
                             transform: translateY(0);
                             transition-delay: 0.6s;
                         }
@@ -351,7 +406,7 @@ body {
                         }
                     }
 
-                    &.books {
+                    &.person {
                         .icon {
                             opacity: 1;
                             transform: translateY(0);
@@ -371,23 +426,11 @@ body {
                         }
                     }
 
-                    &.bars {
+                    &.skills {
                         .icon {
                             opacity: 1;
                             transform: translate(0) scale(1);
                             transition-delay: 0.6s;
-
-                            &:nth-child(2) {
-                                transition-delay: 1.050s;
-                            }
-
-                            &:nth-child(3) {
-                                transition-delay: 0.925s;
-                            }
-
-                            &:nth-child(4) {
-                                transition-delay: 0.8s;
-                            }
                         }
                     }
 

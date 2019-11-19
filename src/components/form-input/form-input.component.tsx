@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 import './form-input.styles.scss';
 
 import { PeiliConsumer } from '../../context/context';
 
-const FormInput = ({ ...otherProps }) => (
+const FormInput = ({ ...otherProps }: InputHTMLAttributes<HTMLInputElement>) => (
   <PeiliConsumer>
     {(value: any) => {
       const { handleChange } = value;
