@@ -6,11 +6,26 @@ import logoImage from '../../assets/images/peili-icon.png';
 import boyAvatar from '../../assets/images/boy-avatar.png';
 import FormInput from '../../components/form-input/form-input.component';
 import skillsIcon from '../../assets/images/skills-icon.png';
+import { Link } from 'react-router-dom';
+
+const skillsAndInterests = [
+  { id: 0, name: 'Video games' },
+  { id: 1, name: 'Computer' },
+  { id: 2, name: 'Programming' },
+  { id: 3, name: 'Economics' },
+  { id: 4, name: 'Music composition' },
+  { id: 5, name: 'Marketing' },
+  { id: 6, name: 'Visual design' },
+  { id: 7, name: 'Singing' },
+  { id: 8, name: 'Fashion' },
+  { id: 9, name: 'Sports' },
+];
 
 const RegisterPage = () => {
   const [showPage, setShowPage] = useState(false);
   const [pageIndex, setPageIndex] = useState(0);
   const [name, setName] = useState('user');
+  const [qualities, setQualities] = useState([]);
   const maxPageIndex = 3;
 
   useEffect(() => {
@@ -38,6 +53,16 @@ const RegisterPage = () => {
       result += `<option value={${age}}>${age}</option>`;
     }
     return result;
+  };
+
+  const toggleSelectTag = (tagId: number) => () => {
+    const newQualities = [...qualities];
+    if (newQualities.includes(tagId)) {
+      newQualities.splice(newQualities.indexOf(tagId), 1);
+    } else {
+      newQualities.push(tagId);
+    }
+    setQualities(newQualities);
   };
 
   return (
@@ -87,30 +112,39 @@ const RegisterPage = () => {
                 </div>
                 <div className="register-form-group age-select">
                   <label>What's your age?</label>
-                  <select dangerouslySetInnerHTML={{ __html: renderAgeOptions() }}/>
+                  <select dangerouslySetInnerHTML={{ __html: renderAgeOptions() }} />
                 </div>
               </div>
             </li>
             <li className={`screen${pageIndex === 2 ? ' active' : ''}`}>
               <div className="media skills">
-                <a hidden target="_blank" href="https://icons8.com">
+                <a hidden href="https://icons8.com">
                   Cloud icon by Icons8
                 </a>
                 <img alt="icon" className="icon" src={skillsIcon} />
               </div>
               <h3>Tell us more</h3>
               <p>Select your interests and skills from the list below</p>
-            </li>
-            <li className={`screen${pageIndex === 3 ? ' active' : ''}`}>
-              <div className="media comm">
-                <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/comm_icon_1.png" />
-                <img alt="icon" className="icon" src="https://s3.amazonaws.com/jebbles-codepen/comm_icon_2.png" />
+              <div className="skills-interests tags-group">
+                {skillsAndInterests.map(item => (
+                  <div key={item.id} className={`tag${qualities.includes(item.id) ? ' active' : ''}`} onClick={toggleSelectTag(item.id)}>
+                    {item.name}
+                  </div>
+                ))}
               </div>
-              <h3>Communications Tools</h3>
+            </li>
+            <li className={`screen completed${pageIndex === 3 ? ' active' : ''}`}>
+              <div className="media logo">
+                <img alt="peili-logo" className="logo" src={logoImage} />
+              </div>
+              <h3>You're all set!</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                Thank you for joining us at Peili. <span role="img" aria-label="heart">❤️</span>
+                <br />
+                We will help you learn more about yourself with a wide range of quizzes. And the more answers you make, the easier for us to
+                find the best career choices for you.
               </p>
+              <p>We will enjoy this journey together! <span role="img" aria-label="hand">🤟</span></p>
             </li>
           </ul>
           <button className="prev-screen" disabled={pageIndex === 0} onClick={prevPage}>
@@ -124,9 +158,9 @@ const RegisterPage = () => {
           <button className="button next-screen" onClick={nextPage}>
             Next
           </button>
-          <button className="button finish close" disabled={true}>
-            Finish
-          </button>
+          <Link to="/" className={`button finish${pageIndex === maxPageIndex ? ' active' : ''}`}>
+            Let's go!
+          </Link>
         </div>
       </div>
     </div>
