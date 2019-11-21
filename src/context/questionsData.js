@@ -1,4 +1,4 @@
-const QUESTION_TYPE = {
+export const QUESTION_TYPE = {
   slider: 'slider',
   range: 'range',
   trueFalse: 'trueFalse',
@@ -17,8 +17,10 @@ const QUESTIONS_DATA = [
   {
     level: 1,
     status: QUESTION_STATUS.processing,
-    totalExp: 6,
+    totalExp: 10,
     userGotExp: 0,
+    numberOfQuestion: 0,
+    startQuestionId: '1',
     questions: [
       {
         id: '1',
@@ -30,8 +32,8 @@ const QUESTIONS_DATA = [
         answer: '',
         nextQuestion: {
           condition: 50,
-          nextQuestionId: 3,
-          defaultNextQuestion: 2,
+          nextQuestionId: '22',
+          defaultNextQuestion: '2',
         },
         exp: 1,
       },
@@ -45,64 +47,243 @@ const QUESTIONS_DATA = [
         answer: '',
         nextQuestion: {
           condition: 3,
-          nextQuestionId: 4,
-          defaultNextQuestion: 3,
+          nextQuestionId: '33',
+          defaultNextQuestion: '3',
+        },
+        exp: 1,
+      },
+      {
+        id: '22',
+        type: QUESTION_TYPE.trueFalse,
+        questions: {
+          content:
+            'ID 22 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: [],
+        },
+        answer: '',
+        nextQuestion: {
+          condition: 'true',
+          nextQuestionId: '33',
+          defaultNextQuestion: '3',
         },
         exp: 1,
       },
       {
         id: '3',
-        type: QUESTION_TYPE.trueFalse,
+        type: QUESTION_TYPE.text,
         questions: {
           content: 'ID 3 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: [],
         },
         answer: '',
         nextQuestion: {
-          condition: 'true',
-          nextQuestionId: 5,
-          defaultNextQuestion: 4,
+          defaultNextQuestion: '4',
+        },
+        exp: 1,
+      },
+      {
+        id: '33',
+        type: QUESTION_TYPE.options,
+        questions: {
+          content:
+            'ID 33 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: ['option1 content', 'option2 content', 'option3 content', 'option 4 content'],
+        },
+        answer: '',
+        nextQuestion: {
+          condition: 2,
+          nextQuestionId: '44',
+          defaultNextQuestion: '4',
         },
         exp: 1,
       },
       {
         id: '4',
-        type: QUESTION_TYPE.text,
+        type: QUESTION_TYPE.date,
         questions: {
           content: 'ID 4 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: [],
         },
         answer: '',
         nextQuestion: {
-          defaultNextQuestion: 5,
+          defaultNextQuestion: '5',
+        },
+        exp: 1,
+      },
+      {
+        id: '44',
+        type: QUESTION_TYPE.slider,
+        questions: {
+          content:
+            'ID 44 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: [],
+        },
+        answer: '',
+        nextQuestion: {
+          condition: 50,
+          nextQuestionId: '55',
+          defaultNextQuestion: '5',
         },
         exp: 1,
       },
       {
         id: '5',
-        type: QUESTION_TYPE.options,
+        type: QUESTION_TYPE.range,
         questions: {
           content: 'ID 5 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
-          withOptions: ['option1 content', 'option2 content', 'option3 content', 'option 4 content'],
+          withOptions: [],
         },
         answer: '',
         nextQuestion: {
-          condition: 2,
-          nextQuestionId: 6,
-          defaultNextQuestion: 5,
+          condition: 3,
+          nextQuestionId: '66',
+          defaultNextQuestion: '6',
+        },
+        exp: 1,
+      },
+      {
+        id: '55',
+        type: QUESTION_TYPE.trueFalse,
+        questions: {
+          content:
+            'ID 55 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: [],
+        },
+        answer: '',
+        nextQuestion: {
+          condition: 'true',
+          nextQuestionId: '66',
+          defaultNextQuestion: '6',
         },
         exp: 1,
       },
       {
         id: '6',
-        type: QUESTION_TYPE.date,
+        type: QUESTION_TYPE.text,
         questions: {
           content: 'ID 6 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: [],
         },
         answer: '',
         nextQuestion: {
-          defaultNextQuestion: 6,
+          defaultNextQuestion: '7',
+        },
+        exp: 1,
+      },
+      {
+        id: '66',
+        type: QUESTION_TYPE.options,
+        questions: {
+          content:
+            'ID 66 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: ['option1 content', 'option2 content', 'option3 content', 'option 4 content'],
+        },
+        answer: '',
+        nextQuestion: {
+          condition: 2,
+          nextQuestionId: '77',
+          defaultNextQuestion: '7',
+        },
+        exp: 1,
+      },
+      {
+        id: '7',
+        type: QUESTION_TYPE.date,
+        questions: {
+          content: 'ID 7 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: [],
+        },
+        answer: '',
+        nextQuestion: {
+          defaultNextQuestion: '8',
+        },
+        exp: 1,
+      },
+      {
+        id: '77',
+        type: QUESTION_TYPE.slider,
+        questions: {
+          content:
+            'ID 77 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: [],
+        },
+        answer: '',
+        nextQuestion: {
+          condition: 50,
+          nextQuestionId: '88',
+          defaultNextQuestion: '8',
+        },
+        exp: 1,
+      },
+      {
+        id: '8',
+        type: QUESTION_TYPE.range,
+        questions: {
+          content: 'ID 8 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: [],
+        },
+        answer: '',
+        nextQuestion: {
+          condition: 3,
+          nextQuestionId: '99',
+          defaultNextQuestion: '9',
+        },
+        exp: 1,
+      },
+      {
+        id: '88',
+        type: QUESTION_TYPE.trueFalse,
+        questions: {
+          content:
+            'ID 88 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: [],
+        },
+        answer: '',
+        nextQuestion: {
+          condition: 'true',
+          nextQuestionId: '99',
+          defaultNextQuestion: '9',
+        },
+        exp: 1,
+      },
+      {
+        id: '9',
+        type: QUESTION_TYPE.text,
+        questions: {
+          content: 'ID 9 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: [],
+        },
+        answer: '',
+        nextQuestion: {
+          defaultNextQuestion: '10',
+        },
+        exp: 1,
+      },
+      {
+        id: '99',
+        type: QUESTION_TYPE.options,
+        questions: {
+          content:
+            'ID 99 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: ['option1 content', 'option2 content', 'option3 content', 'option 4 content'],
+        },
+        answer: '',
+        nextQuestion: {
+          defaultNextQuestion: '10',
+        },
+        exp: 1,
+      },
+      {
+        id: '10',
+        type: QUESTION_TYPE.date,
+        questions: {
+          content:
+            'ID 10 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: [],
+        },
+        answer: '',
+        nextQuestion: {
+          defaultNextQuestion: '',
         },
         exp: 1,
       },
@@ -111,264 +292,275 @@ const QUESTIONS_DATA = [
   {
     level: 2,
     status: QUESTION_STATUS.lock,
-    totalExp: 12,
+    totalExp: 20,
     userGotExp: 0,
+    numberOfQuestion: 0,
+    startQuestionId: 'a1',
     questions: [
       {
-        id: '11',
+        id: 'a1',
         type: QUESTION_TYPE.slider,
         questions: {
-          content: 'There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          content: 'ID 1 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: [],
         },
-        answer: [
-          {
-            answerContent: '1-50',
-            nextQuestionId: 12,
-          },
-          {
-            answerContent: '51-100',
-            nextQuestionId: 13,
-          },
-          {
-            defaultNextQuestion: 12,
-          },
-        ],
-        exp: 2,
+        answer: '',
+        nextQuestion: {
+          condition: 50,
+          nextQuestionId: 'a2',
+          defaultNextQuestion: 'a22',
+        },
+        exp: 1,
       },
       {
-        id: '12',
+        id: 'a2',
         type: QUESTION_TYPE.range,
         questions: {
-          content: 'There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          content: 'ID 2 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: [],
         },
-        answer: [
-          {
-            answerContent: '1-3',
-            nextQuestionId: 13,
-          },
-          {
-            answerContent: '4-5',
-            nextQuestionId: 14,
-          },
-          {
-            defaultNextQuestion: 13,
-          },
-        ],
-        exp: 2,
+        answer: '',
+        nextQuestion: {
+          condition: 3,
+          nextQuestionId: 'a33',
+          defaultNextQuestion: 'a3',
+        },
+        exp: 1,
       },
       {
-        id: '13',
+        id: 'a22',
         type: QUESTION_TYPE.trueFalse,
         questions: {
-          content: 'There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          content:
+            'ID 22 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: [],
         },
-        answer: [
-          {
-            answerContent: 'true',
-            nextQuestionId: 14,
-          },
-          {
-            answerContent: '50-100',
-            nextQuestionId: 15,
-          },
-          {
-            defaultNextQuestion: 14,
-          },
-        ],
-        exp: 2,
+        answer: '',
+        nextQuestion: {
+          condition: 'true',
+          nextQuestionId: 'a33',
+          defaultNextQuestion: 'a3',
+        },
+        exp: 1,
       },
       {
-        id: '14',
+        id: 'a3',
         type: QUESTION_TYPE.text,
         questions: {
-          content: 'There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          content: 'ID 3 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: [],
         },
-        answer: [
-          {
-            answerContent: '',
-            nextQuestionId: 15,
-          },
-          {
-            defaultNextQuestion: 15,
-          },
-        ],
-        exp: 2,
+        answer: '',
+        nextQuestion: {
+          defaultNextQuestion: 'a4',
+        },
+        exp: 1,
       },
       {
-        id: '15',
+        id: 'a33',
         type: QUESTION_TYPE.options,
         questions: {
-          content: 'There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          content:
+            'ID 33 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: ['option1 content', 'option2 content', 'option3 content', 'option 4 content'],
         },
-        answer: [
-          {
-            answerContent: 'option 1',
-            nextQuestionId: 16,
-          },
-          {
-            answerContent: 'option 2',
-            nextQuestionId: 17,
-          },
-          {
-            defaultNextQuestion: 16,
-          },
-        ],
-        exp: 2,
+        answer: '',
+        nextQuestion: {
+          condition: 2,
+          nextQuestionId: 'a44',
+          defaultNextQuestion: 'a4',
+        },
+        exp: 1,
       },
       {
-        id: '16',
+        id: 'a4',
         type: QUESTION_TYPE.date,
         questions: {
-          content: 'There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          content: 'ID 4 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: [],
         },
-        answer: [
-          {
-            answerContent: '',
-            nextQuestionId: 17,
-          },
-          {
-            defaultNextQuestion: 16,
-          },
-        ],
-        exp: 2,
+        answer: '',
+        nextQuestion: {
+          defaultNextQuestion: 'a5',
+        },
+        exp: 1,
       },
-    ],
-  },
-  {
-    level: 3,
-    status: QUESTION_STATUS.lock,
-    totalExp: 18,
-    userGotExp: 0,
-    questions: [
       {
-        id: '21',
+        id: 'a44',
         type: QUESTION_TYPE.slider,
         questions: {
-          content: 'There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          content:
+            'ID 44 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: [],
         },
-        answer: [
-          {
-            answerContent: '1-50',
-            nextQuestionId: 22,
-          },
-          {
-            answerContent: '51-100',
-            nextQuestionId: 23,
-          },
-          {
-            defaultNextQuestion: 22,
-          },
-        ],
-        exp: 3,
+        answer: '',
+        nextQuestion: {
+          condition: 50,
+          nextQuestionId: 'a55',
+          defaultNextQuestion: 'a5',
+        },
+        exp: 1,
       },
       {
-        id: '22',
+        id: 'a5',
         type: QUESTION_TYPE.range,
         questions: {
-          content: 'There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          content: 'ID 5 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: [],
         },
-        answer: [
-          {
-            answerContent: '1-3',
-            nextQuestionId: 23,
-          },
-          {
-            answerContent: '4-5',
-            nextQuestionId: 24,
-          },
-          {
-            defaultNextQuestion: 23,
-          },
-        ],
-        exp: 3,
+        answer: '',
+        nextQuestion: {
+          condition: 3,
+          nextQuestionId: 'a66',
+          defaultNextQuestion: 'a6',
+        },
+        exp: 1,
       },
       {
-        id: '23',
+        id: 'a55',
         type: QUESTION_TYPE.trueFalse,
         questions: {
-          content: 'There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          content:
+            'ID 55 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: [],
         },
-        answer: [
-          {
-            answerContent: 'true',
-            nextQuestionId: 14,
-          },
-          {
-            answerContent: '50-100',
-            nextQuestionId: 15,
-          },
-          {
-            defaultNextQuestion: 14,
-          },
-        ],
-        exp: 3,
+        answer: '',
+        nextQuestion: {
+          condition: 'true',
+          nextQuestionId: 'a66',
+          defaultNextQuestion: 'a6',
+        },
+        exp: 1,
       },
       {
-        id: '24',
+        id: 'a6',
         type: QUESTION_TYPE.text,
         questions: {
-          content: 'There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          content: 'ID 6 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: [],
         },
-        answer: [
-          {
-            answerContent: '',
-            nextQuestionId: 25,
-          },
-          {
-            defaultNextQuestion: 25,
-          },
-        ],
-        exp: 3,
+        answer: '',
+        nextQuestion: {
+          defaultNextQuestion: 'a7',
+        },
+        exp: 1,
       },
       {
-        id: '25',
+        id: 'a66',
         type: QUESTION_TYPE.options,
         questions: {
-          content: 'There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          content:
+            'ID 66 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: ['option1 content', 'option2 content', 'option3 content', 'option 4 content'],
         },
-        answer: [
-          {
-            answerContent: 'option 1',
-            nextQuestionId: 26,
-          },
-          {
-            answerContent: 'option 2',
-            nextQuestionId: 27,
-          },
-          {
-            defaultNextQuestion: 26,
-          },
-        ],
-        exp: 3,
+        answer: '',
+        nextQuestion: {
+          condition: 2,
+          nextQuestionId: 'a77',
+          defaultNextQuestion: 'a7',
+        },
+        exp: 1,
       },
       {
-        id: '26',
+        id: 'a7',
         type: QUESTION_TYPE.date,
         questions: {
-          content: 'There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          content: 'ID 7 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
           withOptions: [],
         },
-        answer: [
-          {
-            answerContent: '',
-            nextQuestionId: 27,
-          },
-          {
-            defaultNextQuestion: 26,
-          },
-        ],
-        exp: 3,
+        answer: '',
+        nextQuestion: {
+          defaultNextQuestion: 'a8',
+        },
+        exp: 1,
+      },
+      {
+        id: 'a77',
+        type: QUESTION_TYPE.slider,
+        questions: {
+          content:
+            'ID 77 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: [],
+        },
+        answer: '',
+        nextQuestion: {
+          condition: 50,
+          nextQuestionId: 'a88',
+          defaultNextQuestion: 'a8',
+        },
+        exp: 1,
+      },
+      {
+        id: 'a8',
+        type: QUESTION_TYPE.range,
+        questions: {
+          content: 'ID 8 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: [],
+        },
+        answer: '',
+        nextQuestion: {
+          condition: 3,
+          nextQuestionId: 'a99',
+          defaultNextQuestion: 'a9',
+        },
+        exp: 1,
+      },
+      {
+        id: 'a88',
+        type: QUESTION_TYPE.trueFalse,
+        questions: {
+          content:
+            'ID 88 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: [],
+        },
+        answer: '',
+        nextQuestion: {
+          condition: 'true',
+          nextQuestionId: 'a99',
+          defaultNextQuestion: 'a9',
+        },
+        exp: 1,
+      },
+      {
+        id: 'a9',
+        type: QUESTION_TYPE.text,
+        questions: {
+          content: 'ID 9 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: [],
+        },
+        answer: '',
+        nextQuestion: {
+          defaultNextQuestion: '10',
+        },
+        exp: 1,
+      },
+      {
+        id: 'a99',
+        type: QUESTION_TYPE.options,
+        questions: {
+          content:
+            'ID 99 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: ['option1 content', 'option2 content', 'option3 content', 'option 4 content'],
+        },
+        answer: '',
+        nextQuestion: {
+          defaultNextQuestion: '10',
+        },
+        exp: 1,
+      },
+      {
+        id: 'a10',
+        type: QUESTION_TYPE.date,
+        questions: {
+          content:
+            'ID 10 - There are many variations of passages of Lorem Ipsum available, words which dont look even slightly believable.',
+          withOptions: [],
+        },
+        answer: '',
+        nextQuestion: {
+          defaultNextQuestion: '',
+        },
+        exp: 1,
       },
     ],
   },
