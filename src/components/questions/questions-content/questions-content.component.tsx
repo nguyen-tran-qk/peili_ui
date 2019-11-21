@@ -5,44 +5,28 @@ import { Link } from 'react-router-dom';
 
 import { FaArrowRight } from 'react-icons/fa';
 
-import { QuestionContext } from '../../../context/QuestionContext';
+// import { QuestionContext } from '../../../context/QuestionContext';
+import TypesSlider from '../question-types/question-types-slider/question-types-slider.component';
+import TypesRange from '../question-types/question-types-range/question-types-range.component';
+import TypesTrueFalse from '../question-types/question-types-trueFalse/question-types-trueFalse.component';
+import TypesText from '../question-types/question-types-text/question-types-text.component';
+import TypesOptions from '../question-types/question-types-options/question-types-options.component';
+import TypesDate from '../question-types/question-types-date/question-types-date.component';
 
-const QuestionsContent = () => {
-  const { selectedQuestion } = useContext(QuestionContext);
-  const styleImg = {
-    width: '100%',
-    margin: '0',
-  };
-  switch (selectedQuestion.id) {
-    case 3:
-      styleImg.width = '200px';
-      break;
-    case 5:
-      styleImg.width = '200px';
-      break;
-    case 6:
-      styleImg.width = '80%';
-      styleImg.margin = '0 auto';
-      break;
-    case 7:
-      styleImg.width = '100px';
-      styleImg.margin = '250px auto';
-      break;
-    default:
-      styleImg.width = '100%';
-      styleImg.margin = '0';
+const QuestionsContent = ({ question }) => {
+  console.log('cac', question);
+  if (question) {
+    console.log(question.type);
   }
   return (
     <div className="questions-content">
-      <p>{selectedQuestion.content}</p>
-      <div className="questions-content-img-container">
-        <img src={selectedQuestion.image} alt="question" style={styleImg} />
-        {selectedQuestion.id === 7 ? (
-          <Link to="/questions-review" className="questions-content-see-answers">
-            see answers <FaArrowRight className="questions-content-see-answers-icon" />
-          </Link>
-        ) : null}
-      </div>
+      <p>{question && question.questions.content}</p>
+      {question && question.type === 'slider' ? <TypesSlider /> : null}
+      {question && question.type === 'range' ? <TypesRange /> : null}
+      {question && question.type === 'trueFalse' ? <TypesTrueFalse /> : null}
+      {question && question.type === 'text' ? <TypesText /> : null}
+      {question && question.type === 'options' ? <TypesOptions /> : null}
+      {question && question.type === 'date' ? <TypesDate /> : null}
     </div>
   );
 };

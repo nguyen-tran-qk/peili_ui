@@ -1,0 +1,16 @@
+@import '../../../../index.scss';
+
+.question-types-text {
+  .question-types-text-input {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid $darkGrey;
+
+    &:focus {
+      box-shadow: $mainBoxShadow;
+    }
+  }
+}

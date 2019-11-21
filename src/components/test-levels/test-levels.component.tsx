@@ -8,7 +8,7 @@ import processingImg from '../../assets/images/processing.png';
 import { Link } from 'react-router-dom';
 
 const TestLevels = (props: any) => {
-  const { level, exp, status } = props;
+  const { level, exp, status, totalQuestions } = props;
   let image = null;
   let bcg = '';
   let link = '';
@@ -18,14 +18,14 @@ const TestLevels = (props: any) => {
       bcg = 'doneBcg';
       link = '/questions-review';
       break;
-    case 'locked':
+    case 'lock':
       image = lockedImg;
       link = '/tests';
       break;
     default:
       image = processingImg;
       bcg = 'processing';
-      link = '/questions';
+      link = '/questions/' + level;
       break;
   }
   return (
@@ -34,7 +34,13 @@ const TestLevels = (props: any) => {
         <h2 className="test-levels-title">level {level}</h2>
         <p className="test-levels-exp">Answer questions to get {exp} EXP</p>
         <div className="test-levels-img-container">
-          <img src={image} alt="done" />
+          {bcg === 'processing' ? (
+            <p className="test-levels-status-processing">
+              {status}/{totalQuestions}
+            </p>
+          ) : (
+            <img src={image} alt="done" />
+          )}
         </div>
       </div>
     </Link>

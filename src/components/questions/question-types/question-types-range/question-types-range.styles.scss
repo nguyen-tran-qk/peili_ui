@@ -1,0 +1,66 @@
+@import '../../../../index.scss';
+
+.question-types-range {
+  display: flex;
+  flex-direction: column;
+
+  .question-types-range-label-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    //margin-bottom: 1.5rem;
+    margin-top: 3.5rem;
+    span {
+      font-size: 1.2rem;
+      text-transform: capitalize;
+      font-weight: bold;
+    }
+
+    span:last-child {
+      text-align: right;
+    }
+    span:nth-last-child(2) {
+      text-align: center;
+    }
+  }
+
+  .question-types-range-input-container {
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+
+    .quesion-types-range-input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      display: inline-block;
+      position: relative;
+      background-color: #f1f1f1;
+      color: $primaryColor;
+      top: 10px;
+      height: 50px;
+      width: 50px;
+      border: 0;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-right: 7px;
+      outline: none;
+
+      &:checked::before {
+        position: absolute;
+        font: 30px/1 'Open Sans', sans-serif;
+        left: 15px;
+        top: 7px;
+        content: '\02143';
+        transform: rotate(40deg);
+      }
+
+      &:hover {
+        background-color: #f7f7f7;
+      }
+
+      &:checked {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+}

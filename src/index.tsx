@@ -7,13 +7,16 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 
 import { PeiliProvider } from './context/context';
+import { UserContextProvider } from './context/userContext';
 
 ReactDOM.render(
-  <PeiliProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </PeiliProvider>,
+  <UserContextProvider>
+    <PeiliProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </PeiliProvider>
+  </UserContextProvider>,
   document.getElementById('root')
 );
 
