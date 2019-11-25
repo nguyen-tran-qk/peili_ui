@@ -1,21 +1,12 @@
 @import '../../index.scss';
 
 .organization-event-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   .organization-event {
     margin-top: 1.5rem;
+    margin-right: 20px;
     background: $mainWhite;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    box-shadow: $mainBoxShadow;
 
     .organization-event-img-container {
-      width: 100%;
-
       img {
         display: block;
         width: 100%;
@@ -70,11 +61,5 @@
         }
       }
     }
-  }
-
-  .indicators {
-    display: block;
-    margin-top: 1rem;
-    width: 60px;
   }
 }
