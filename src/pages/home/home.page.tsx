@@ -8,6 +8,7 @@ const HomePage = () => {
   return (
     <PeiliConsumer>
       {(value: any) => {
+        if (!value) { return null; }
         const { feedData, organizationsData } = value;
         return (
           <div className="homepage">
@@ -15,7 +16,7 @@ const HomePage = () => {
               return <HomeCardItems key={item.id} content={item} organization={organizationsData[item.organizationID]} />;
             })}
           </div>
-        )
+        );
       }}
     </PeiliConsumer>
   );
