@@ -11,7 +11,6 @@ import card3Img from '../../assets/images/home-card-3.jpg';
 const HomePage = () => {
   return (
     <div className="homepage">
-      <HomeCardHeader />
       <HomeCardItems image={card1Img} />
       <HomeCardItems image={card2Img} />
       <HomeCardItems image={card3Img} />
