@@ -19,15 +19,17 @@ const HomeCardItems = (props: any) => {
           <FaHeart className="heart-icon" style={{color: isLiked ? 'ff0000' : '#fff'}} />
         </button>
       </div>
-      <div className="home-card-heading">
-        <img src={organization.logo} alt="card-items" />
-        <Link to={`/organizations/${organization.id}`} className="profile-link profile-active">
-          <h4>{organization.name}</h4>
-        </Link>
-      </div>
-      <div className="home-card-item-info">
-        <h3 className="home-card-items-title">{content.title}</h3>
-        <p className="home-card-items-date">{content.createdAt}</p>
+      <div className="home-card-item-bottom">
+        <div className="home-card-heading">
+          <img src={organization.logo} alt="card-items" />
+          <Link to={`/organizations/${organization.id}`} className="profile-link profile-active">
+            <h4>{organization.name}</h4>
+          </Link>
+        </div>
+        <div className="home-card-item-info">
+          <p className="home-card-items-title">{content.title}</p>
+          <p className="home-card-items-date">{content.createdAt}</p>
+        </div>
       </div>
     </div>
   );

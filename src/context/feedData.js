@@ -8,21 +8,21 @@ const feedData = [
         organizationID: 1,
         createdAt: 'Sep 16, 2019',
         image: card1Img,
-        title: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
+        title: "Lorem ipsum dolor sit amet consectetur adipisi elit? Lorem ipsum dolor Lorem ipsum dolor",
     },
     {   
         id: 2,
         organizationID: 2,
         createdAt: 'Sep 16, 2019',
         image: card2Img,
-        title: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
+        title: "Lorem ipsum dolor sit amet consectetur adipisi elit? Lorem ipsum dolor Lorem ipsum dolor",
     },
     {   
         id: 3,
         organizationID: 2,
         createdAt: 'Sep 16, 2019',
         image: card3Img,
-        title: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
+        title: "Lorem ipsum dolor sit amet consectetur adipisi elit? Lorem ipsum dolor Lorem ipsum dolor",
     },
 ];
 
