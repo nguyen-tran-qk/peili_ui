@@ -1,20 +1,23 @@
 import React from 'react';
 import './home.styles.scss';
-
-import HomeCardHeader from '../../components/home-card-header/home-card-header.component';
 import HomeCardItems from '../../components/home-card-items/home-card-items.component';
 
-import card1Img from '../../assets/images/home-card-1.jpg';
-import card2Img from '../../assets/images/home-card-2.jpg';
-import card3Img from '../../assets/images/home-card-3.jpg';
+import { PeiliConsumer } from '../../context/context';
 
 const HomePage = () => {
   return (
-    <div className="homepage">
-      <HomeCardItems image={card1Img} />
-      <HomeCardItems image={card2Img} />
-      <HomeCardItems image={card3Img} />
-    </div>
+    <PeiliConsumer>
+      {(value: any) => {
+        const { feedData, organizationsData } = value;
+        return (
+          <div className="homepage">
+            {feedData.map((item: any) => {
+              return <HomeCardItems key={item.id} content={item} organization={organizationsData[item.organizationID]} />;
+            })}
+          </div>
+        )
+      }}
+    </PeiliConsumer>
   );
 };
 
