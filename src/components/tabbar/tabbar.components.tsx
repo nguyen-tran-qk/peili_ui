@@ -24,7 +24,7 @@ const TabBar = (props: any) => {
       <div className={`tabbar-item ${path === '/organizations' || path.includes('/organizations') ? 'tabbar-active' : null}`}>
         <Link to="/organizations">
           <FaRegCommentAlt className="tabbar-icon" />
-          <h3 className="tabbar-title">Organisation</h3>
+          <h3 className="tabbar-title">Organization</h3>
         </Link>
       </div>
       <div className={`tabbar-item ${path === '/profile' || path.includes('/profile/') ? 'tabbar-active' : null}`}>
