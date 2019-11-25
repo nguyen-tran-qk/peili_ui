@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './home-card-items.styles.scss';
 
 import { FaHeart } from 'react-icons/fa';
@@ -6,10 +6,18 @@ import { Link } from 'react-router-dom';
 
 const HomeCardItems = (props: any) => {
   const { content, organization } = props;
+  const [ isLiked, setLike ] = useState(false);
+
+  const toggleLike = () => {
+    setLike(!isLiked);
+  };
+
   return (
     <div className="home-card-items">
       <div className="home-card-item-img-container" style={{backgroundImage: `url(${content.image})`}}>
-        <FaHeart className="heart-icon" />
+        <button onClick={toggleLike}>
+          <FaHeart className="heart-icon" style={{color: isLiked ? 'ff0000' : '#fff'}} />
+        </button>
       </div>
       <div className="home-card-heading">
         <img src={organization.logo} alt="card-items" />
