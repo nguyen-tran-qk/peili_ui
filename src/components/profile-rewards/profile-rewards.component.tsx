@@ -12,7 +12,7 @@ const Rewards = (props: any) => {
         const { user, substractEXP } = value;
         const { reward } = props;
         const redeemReward = (exp: any) => {
-          if (user.exp > exp) {
+          if (user.exp >= exp) {
             redeem(true); // change button style
             substractEXP(exp); // update user data
           } else {
