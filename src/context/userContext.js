@@ -136,10 +136,15 @@ export const UserContextProvider = props => {
     }
   };
 
+  const substractEXP = rewardEXPCost => {
+    setUser({...user, exp: user.exp - rewardEXPCost});
+  }
+
   return (
     <UserContext.Provider
       value={{
         user,
+        substractEXP,
         questions,
         getQuestion,
         answerSlide,
@@ -165,3 +170,5 @@ export const UserContextProvider = props => {
     </UserContext.Provider>
   );
 };
+
+export const PeiliUserConsumer = UserContext.Consumer;

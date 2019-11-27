@@ -4,7 +4,7 @@ const USERS_DATA = [
     firstName: 'Michael',
     lastName: 'Jackson',
     email: 'hello@gmail.com',
-    exp: 0,
+    exp: 100,
     strengths: [],
     rewards: [],
     events: [],
