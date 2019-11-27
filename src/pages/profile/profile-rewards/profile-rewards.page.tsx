@@ -6,27 +6,33 @@ import Rewards from '../../../components/profile-rewards/profile-rewards.compone
 
 import { Link } from 'react-router-dom';
 
+import { PeiliConsumer } from '../../../context/context';
+
 const ProfileRewards = () => {
   return (
-    <div className="profile-rewards">
-      <ProfileHeader />
-      <div className="profile-tab">
-        <Link to="/profile" className="profile-link ">
-          Your Strengths
-        </Link>
-        <Link to="/profile/rewards" className="profile-link profile-active">
-          Rewards
-        </Link>
-      </div>
-      <div className="rewards-group">
-        <Rewards />
-        <Rewards />
-        <Rewards />
-        <Rewards />
-        <Rewards />
-        <Rewards />
-      </div>
-    </div>
+    <PeiliConsumer>
+      {(value: any) => {
+        const { rewardData } = value;
+        return (
+          <div className="profile-rewards">
+            <ProfileHeader />
+            <div className="profile-tab">
+              <Link to="/profile" className="profile-link ">
+                Your Strengths
+              </Link>
+              <Link to="/profile/rewards" className="profile-link profile-active">
+                Rewards
+              </Link>
+            </div>
+            <div className="rewards-group">
+              {rewardData.map((item: any) => {
+                return <Rewards key={item.id} reward={item} />;
+              })}
+            </div>
+          </div>
+        );
+      }}
+    </PeiliConsumer>
   );
 };
 

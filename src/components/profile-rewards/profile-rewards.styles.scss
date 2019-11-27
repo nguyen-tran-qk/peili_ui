@@ -2,9 +2,9 @@
 
 .rewards {
   background: $mainWhite;
-  max-width: 250px;
+  width: 48%;
   transition: $mainTransition;
-  margin-right: 1.5rem;
+  margin-right: 2%;
   margin-bottom: 1.5rem;
 
   &:hover {
@@ -48,11 +48,6 @@
       outline: none;
       cursor: pointer;
       transition: $mainTransition;
-
-      &:hover {
-        background: $mainBlack;
-        color: $mainWhite;
-      }
     }
   }
 }
