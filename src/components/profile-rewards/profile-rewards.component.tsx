@@ -36,6 +36,7 @@ const Rewards = (props: any) => {
                 onClick={() => redeemReward(reward.exp)}
                 className="rewards-button" 
                 style={{backgroundColor: isRedeemed ? '#000' : '#fff', color: isRedeemed ? '#fff' : '#000'}}
+                disabled={isRedeemed}
               >
                 redeem{isRedeemed ? 'ed' : ''}
               </button>
