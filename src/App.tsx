@@ -16,6 +16,7 @@ import TestsPage from './pages/tests/tests.page';
 // import FeedBackPage from "./pages/feedback/feedback.page";
 import QuestionsPage from './pages/questions/questions.page';
 import QuizResults from './pages/quiz-results/QuizResults.page';
+import TestsDone from './pages/tests/tests-done/tests-done.component';
 import TabBar from './components/tabbar/tabbar.components';
 
 import './App.scss';
@@ -39,6 +40,7 @@ const App: React.FC = () => {
         <Route path="/tests" component={TestsPage} />
         <Route path="/questions/:level" component={QuestionsPage} />
         <Route exact path="/quiz-results" component={QuizResults} />
+        <Route path="/tests-done" component={TestsDone} />
         <Route component={Error404Page} />
       </Switch>
 

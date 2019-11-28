@@ -1,0 +1,16 @@
+@import '../../../index.scss';
+
+.tests-done {
+  text-align: center;
+  img {
+    display: block;
+    width: 20%;
+    margin: 40% auto 20px;
+  }
+
+  .tests-done-link {
+    text-transform: uppercase;
+    color: $mainBlack;
+    text-decoration: underline;
+  }
+}

@@ -1,4 +1,4 @@
-@import "../../../index.scss";
+@import '../../../index.scss';
 
 .questions-bar {
   background: $mainGrey;
@@ -28,15 +28,21 @@
 
     h3 {
       color: $darkGrey;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       font-size: 1rem;
     }
 
-    img {
-      display: block;
-      width: 90%;
-      height: 15px;
-      margin: 0 auto;
+    p {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $secondaryColor;
     }
+
+    // img {
+    //   display: block;
+    //   width: 90%;
+    //   height: 15px;
+    //   margin: 0 auto;
+    // }
   }
 }

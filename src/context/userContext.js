@@ -1,8 +1,8 @@
-import React, { useState, useEffect, createContext } from 'react';
-import usersData from './usersData';
-import questionsData, { QUESTION_TYPE } from './questionsData';
+// import React, { useState, useEffect, createContext } from 'react';
+// import usersData from './usersData';
+// import questionsData, { QUESTION_TYPE } from './questionsData';
 
-import { getTestResultsByUser } from '../utils/userTestResults';
+// export const UserContext = createContext();
 
 export const UserContext = createContext();
 

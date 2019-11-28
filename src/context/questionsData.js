@@ -327,7 +327,7 @@ const QUESTIONS_DATA = [
     totalExp: 10,
     userGotExp: 0,
     numberOfQuestion: 0,
-    startQuestionId: '1',
+    startQuestionId: 'a1',
     schoolPoint: 0,
     freeTimePoint: 0,
     healthPoint: 0,

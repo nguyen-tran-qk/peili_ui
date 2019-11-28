@@ -19,12 +19,13 @@ import { withRouter } from 'react-router-dom';
 class QuestionsPage extends React.Component {
   level = 0;
   history = null;
+
   // startQuestionId = null;
   // questionLoaded = null;
   // questionsInLevel = null;
   constructor(props) {
     super(props);
-    console.log(props);
+
     this.history = props.history;
     this.level = Number(props.match.params.level);
   }
@@ -174,7 +175,12 @@ class QuestionsPage extends React.Component {
       },
       () => {
         if (this.state.questionIdArray.length === this.state.questionsInLevel.numberOfQuestion) {
-          this.history.push('/tests');
+          // this.history.push('/tests');
+          const openNextLevel = this.state.testResults.find(item => item.level === this.level + 1);
+          // console.log('next level', openNextLevel);
+          openNextLevel.status = '0';
+          this.syncStorage();
+          this.history.push('/tests-done');
         }
       }
     );
@@ -308,7 +314,12 @@ class QuestionsPage extends React.Component {
             <TypesDate handleChange={this.handleChange} answer={this.state.answer} />
           ) : null}
         </div>
-        <QuestionsBar nextQuestion={this.nextQuestion} prevQuestion={this.prevQuestion} />
+        <QuestionsBar
+          nextQuestion={this.nextQuestion}
+          prevQuestion={this.prevQuestion}
+          numberOfQuestion={this.state.questionsInLevel && this.state.questionsInLevel.numberOfQuestion}
+          numberOfAnswer={this.state.questionIdArray && this.state.questionIdArray.length}
+        />
       </div>
     );
   }
