@@ -1,31 +1,28 @@
 import React from 'react';
-import {
-  XYPlot,
-  XAxis,
-  YAxis,
-  VerticalGridLines,
-  HorizontalGridLines,
-  VerticalBarSeries,
-  LabelSeries,
-} from 'react-vis';
+import { XAxis, YAxis, VerticalGridLines, HorizontalGridLines, VerticalBarSeries, FlexibleWidthXYPlot, makeWidthFlexible, RadialChart } from 'react-vis';
 import './quiz-results.scss';
 
-const greenData = [
-  { x: 'A', y: 10 },
-  { x: 'B', y: 5 },
-  { x: 'C', y: 15 },
+const sportsData = [
+  { x: 'Football', y: 89 },
+  { x: 'Surfing', y: 42 },
+  { x: 'Golf', y: 14 },
+  { x: 'Baseball', y: 27 },
+  { x: 'Skateboarding', y: 69 },
+  { x: 'Cycling', y: 53 },
 ];
 
-const blueData = [
-  { x: 'A', y: 12 },
-  { x: 'B', y: 2 },
-  { x: 'C', y: 11 },
+const moodData = [
+  { angle: 12, label: 'Happy', color: '#26c6da' },
+  { angle: 5, label: 'Sad', color: '#673ab7' },
+  { angle: 11, label: 'Motivated/Energetic', color: '#009688' },
+  { angle: 9, label: 'Angry', color: '#ffeb3b' },
+  { angle: 20, label: 'Exhausted', color: '#b0bec5' },
+  { angle: 7, label: 'Anxious/Worried', color: '#ef5350' },
+  { angle: 14, label: 'Depressed', color: '#1a237e' },
+  { angle: 22, label: 'In love', color: '#f4511e' },
 ];
 
-const labelData = greenData.map((d, idx) => ({
-  x: d.x,
-  y: Math.max(greenData[idx].y, blueData[idx].y),
-}));
+const FlexibleWidthRadialChart = makeWidthFlexible(RadialChart);
 
 const QuizResults = () => {
   return (
@@ -33,22 +30,28 @@ const QuizResults = () => {
       <div className="quiz-results-header">Level 1</div>
       <div className="question-results-card">
         <label>Question 1</label>
-        <p className="question-text">
-          There are many variations of passages of Lorem Ipsum available, words which don't look even slightly believable.
-        </p>
+        <p className="question-text">Which of these outdoor sports do you feel like playing most?</p>
         <div className="your-answer">
-          <b>Your answer: </b>5
+          <b>Your answer: </b>Base ball; Football
         </div>
         <div className="results-visual">
-          <XYPlot xType="ordinal" width={300} height={300} xDistance={100}>
+          <FlexibleWidthXYPlot xType="ordinal" height={300}>
             <VerticalGridLines />
             <HorizontalGridLines />
             <XAxis />
             <YAxis />
-            <VerticalBarSeries className="vertical-bar-series-example" data={greenData} />
-            <VerticalBarSeries data={blueData} />
-            <LabelSeries data={labelData} getLabel={d => d.x} />
-          </XYPlot>
+            <VerticalBarSeries data={sportsData} />
+          </FlexibleWidthXYPlot>
+        </div>
+      </div>
+      <div className="question-results-card">
+        <label>Question 2</label>
+        <p className="question-text">What is the most accurate description of your mood so far this week?</p>
+        <div className="your-answer">
+          <b>Your answer: </b>Exhausted
+        </div>
+        <div className="results-visual">
+          <FlexibleWidthRadialChart height={300} data={moodData} colorType="literal" />
         </div>
       </div>
     </div>

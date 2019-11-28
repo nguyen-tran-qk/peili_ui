@@ -15,7 +15,7 @@ import Error404Page from './pages/404/404.page';
 import TestsPage from './pages/tests/tests.page';
 // import FeedBackPage from "./pages/feedback/feedback.page";
 import QuestionsPage from './pages/questions/questions.page';
-import QuestionsReviewPage from './pages/questions/questions-review/questions-review.page';
+import QuizResults from './pages/quiz-results/QuizResults.page';
 import TabBar from './components/tabbar/tabbar.components';
 
 import './App.scss';
@@ -38,7 +38,7 @@ const App: React.FC = () => {
         <Route exact path="/register" component={RegisterPage} />
         <Route path="/tests" component={TestsPage} />
         <Route path="/questions/:level" component={QuestionsPage} />
-        <Route exact path="/questions-review" component={QuestionsReviewPage} />
+        <Route exact path="/quiz-results" component={QuizResults} />
         <Route component={Error404Page} />
       </Switch>
       <TabBar />
