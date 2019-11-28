@@ -48,6 +48,19 @@
       outline: none;
       cursor: pointer;
       transition: $mainTransition;
+      &.redeemed {
+        background: $mainBlack;
+        color: $mainWhite;
+      }
+    }
+
+    .rewards-error-message {
+      color: red;
+      margin-bottom: 10px;
+      display: none;
+      &.show {
+        display: block;
+      }
     }
   }
 }
