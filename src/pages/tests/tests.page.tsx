@@ -3,14 +3,18 @@ import './tests.styles.scss';
 
 import TestLevels from '../../components/test-levels/test-levels.component';
 
-import { UserContext } from '../../context/userContext';
+// import { UserContext } from '../../context/userContext';
+import { AuthContext } from '../../context/authContext';
 
 const Tests = () => {
-  const { user, isLoaded } = useContext(UserContext);
-  const questions = user.questions;
+  // const { user, isLoaded } = useContext(UserContext);
+
+  const { userTestResults } = useContext(AuthContext);
+
+  const questions = userTestResults.testResults;
   return (
     <div className="tests">
-      {isLoaded &&
+      {questions &&
         questions.map((question, index) => {
           return (
             <TestLevels
@@ -18,6 +22,7 @@ const Tests = () => {
               status={question.status}
               key={index}
               exp={question.totalExp}
+              doneQuestions={question.questionIdArray.length}
               totalQuestions={question.numberOfQuestion}
             />
           );

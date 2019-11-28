@@ -1,16 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './question-types-options.styles.scss';
 
-import { UserContext } from '../../../../context/userContext';
-
-const TypesOptions = () => {
-  const { answerOptions, setAnswerOptions } = useContext(UserContext);
-
-  const handleChecked = e => {
-    const isChecked = e.target.checked;
-
-    isChecked ? setAnswerOptions(answerOptions + 1) : setAnswerOptions(answerOptions - 1);
-  };
+const TypesOptions = (props: any) => {
+  const { handleChange, answer } = props;
 
   return (
     <div className="question-types-options">
@@ -20,7 +12,9 @@ const TypesOptions = () => {
           id="radio-options"
           className="question-types-options-checkbox"
           name="types-options"
-          onChange={handleChecked}
+          value="1"
+          checked={(answer && answer[0] === 1) || false}
+          onChange={handleChange}
         />
         <label htmlFor="radio-options">Option 1</label>
       </div>
@@ -30,7 +24,9 @@ const TypesOptions = () => {
           id="radio-options"
           className="question-types-options-checkbox"
           name="types-options"
-          onChange={handleChecked}
+          value="2"
+          checked={(answer && answer[1] === 2) || false}
+          onChange={handleChange}
         />
         <label htmlFor="radio-options">Option 2</label>
       </div>
@@ -40,7 +36,9 @@ const TypesOptions = () => {
           id="radio-options"
           className="question-types-options-checkbox"
           name="types-options"
-          onChange={handleChecked}
+          value="3"
+          checked={(answer && answer[2] === 3) || false}
+          onChange={handleChange}
         />
         <label htmlFor="radio-options">Option 3</label>
       </div>
@@ -50,7 +48,9 @@ const TypesOptions = () => {
           id="radio-options"
           className="question-types-options-checkbox"
           name="types-options"
-          onChange={handleChecked}
+          value="4"
+          checked={(answer && answer[3] === 4) || false}
+          onChange={handleChange}
         />
         <label htmlFor="radio-options">Option 4</label>
       </div>

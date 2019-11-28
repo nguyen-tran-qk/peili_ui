@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './question-types-trueFalse.styles.scss';
 
-import { UserContext } from '../../../../context/userContext';
+const TypesTrueFalse = (props: any) => {
+  const { handleChange, answer } = props;
 
-const TypesTrueFalse = () => {
-  const { setAnswerTrueFalse } = useContext(UserContext);
   return (
     <div className="question-types-trueFalse">
       <div className="question-types-trueFalse-group">
@@ -13,7 +12,9 @@ const TypesTrueFalse = () => {
           id="radio-true-false"
           className="question-types-trueFalse-radio"
           name="truefalse"
-          onClick={() => setAnswerTrueFalse('true')}
+          value="true"
+          checked={answer === 'true'}
+          onChange={handleChange}
         />
         <label htmlFor="radio-true-false">True</label>
       </div>
@@ -24,7 +25,9 @@ const TypesTrueFalse = () => {
           id="radio-true-false"
           className="question-types-trueFalse-radio"
           name="truefalse"
-          onClick={() => setAnswerTrueFalse('false')}
+          value="false"
+          checked={answer === 'false'}
+          onChange={handleChange}
         />
         <label htmlFor="radio-true-false">False</label>
       </div>
