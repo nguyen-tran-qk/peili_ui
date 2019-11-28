@@ -1,5 +1,14 @@
 import React from 'react';
-import { XAxis, YAxis, VerticalGridLines, HorizontalGridLines, VerticalBarSeries, FlexibleWidthXYPlot, makeWidthFlexible, RadialChart } from 'react-vis';
+import {
+  XAxis,
+  YAxis,
+  VerticalGridLines,
+  HorizontalGridLines,
+  VerticalBarSeries,
+  FlexibleWidthXYPlot,
+  makeWidthFlexible,
+  RadialChart,
+} from 'react-vis';
 import './quiz-results.scss';
 
 const sportsData = [
@@ -50,8 +59,16 @@ const QuizResults = () => {
         <div className="your-answer">
           <b>Your answer: </b>Exhausted
         </div>
-        <div className="results-visual">
-          <FlexibleWidthRadialChart height={300} data={moodData} colorType="literal" />
+        <div className="results-visual donut">
+          <FlexibleWidthRadialChart
+            height={300}
+            data={moodData}
+            colorType="literal"
+            showLabels
+            innerRadius={100}
+            radius={140}
+            padAngle={0.04}
+          />
         </div>
       </div>
     </div>
