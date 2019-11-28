@@ -28,14 +28,13 @@ const Rewards = (props: any) => {
               <p className="rewards-subtitle">{reward.description}</p>
               <p className="rewards-exp">{reward.exp} EXP</p>
               <p 
-                style={{display: errorRedeem ? 'block' : 'none', color: 'red', marginBottom: '10px'}}
+                className={`rewards-error-message ${errorRedeem ? 'show' : ''}`}
               >
                 You don't have enough EXP to redeem
               </p>
               <button 
                 onClick={() => redeemReward(reward.exp)}
-                className="rewards-button" 
-                style={{backgroundColor: isRedeemed ? '#000' : '#fff', color: isRedeemed ? '#fff' : '#000'}}
+                className={`rewards-button ${isRedeemed ? 'redeemed' : ''}`}
                 disabled={isRedeemed}
               >
                 redeem{isRedeemed ? 'ed' : ''}
