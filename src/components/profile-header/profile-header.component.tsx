@@ -11,6 +11,9 @@ const ProfileHeader = () => {
   return (
     <PeiliUserConsumer>
       {(value: any) => {
+        if (!value) {
+          return null;
+        }
         const { user } = value;
         return (
           <div className="profile-header">
@@ -22,7 +25,9 @@ const ProfileHeader = () => {
               <img src="https://randomuser.me/api/portraits/med/men/75.jpg" alt="avatar" />
             </div>
             <div className="profile-info">
-              <h2 className="name">{user.firstName} {user.lastName}</h2>
+              <h2 className="name">
+                {user.firstName} {user.lastName}
+              </h2>
               <p className="email">{user.email}</p>
               <span className="exp">
                 <span>{user.exp} EXP</span>
@@ -30,7 +35,7 @@ const ProfileHeader = () => {
             </div>
           </div>
         );
-    }}
+      }}
     </PeiliUserConsumer>
   );
 };

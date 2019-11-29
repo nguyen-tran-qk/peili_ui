@@ -1,8 +1,6 @@
-// import React, { useState, useEffect, createContext } from 'react';
-// import usersData from './usersData';
-// import questionsData, { QUESTION_TYPE } from './questionsData';
-
-// export const UserContext = createContext();
+import React, { useState, useEffect, createContext } from 'react';
+import usersData from './usersData';
+import questionsData, { QUESTION_TYPE } from './questionsData';
 
 export const UserContext = createContext();
 

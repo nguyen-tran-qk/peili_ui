@@ -37,9 +37,9 @@ const App: React.FC = () => {
         {/* <Route exact path="/feedback" component={FeedBackPage} /> */}
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/register" component={RegisterPage} />
-        <Route path="/tests" component={TestsPage} />
-        <Route path="/questions/:level" component={QuestionsPage} />
         <Route exact path="/quiz-results" component={QuizResults} />
+        <Route exact path="/tests" component={TestsPage} />
+        <Route path="/tests/:level" component={QuestionsPage} />
         <Route path="/tests-done" component={TestsDone} />
         <Route component={Error404Page} />
       </Switch>
