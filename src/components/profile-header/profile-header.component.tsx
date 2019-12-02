@@ -30,7 +30,8 @@ const ProfileHeader = () => {
               </h2>
               <p className="email">{user.email}</p>
               <span className="exp">
-                <span>{user.exp} EXP</span>
+                {/* Get real user experience point from localStorage */}
+                <span>{JSON.parse(localStorage.getItem(user.id)).totalExp} EXP</span>
               </span>
             </div>
           </div>

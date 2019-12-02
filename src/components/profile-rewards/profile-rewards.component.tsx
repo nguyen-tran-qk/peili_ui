@@ -12,9 +12,12 @@ const Rewards = (props: any) => {
         const { user, substractEXP } = value;
         const { reward } = props;
         const redeemReward = (exp: any) => {
-          if (user.exp >= exp) {
+          const userExp = JSON.parse(localStorage.getItem(user.id)).totalExp;
+          if (userExp >= exp) {
             redeem(true); // change button style
-            substractEXP(exp); // update user data
+            const modifiedUserData = {...JSON.parse(localStorage.getItem(user.id)), totalExp: userExp - exp};
+            localStorage.setItem(user.id, JSON.stringify(modifiedUserData));
+            substractEXP(exp); // update reward point
           } else {
             setError(true); // render error in reward card
           }
