@@ -3,7 +3,7 @@
 .profile-header {
   position: relative;
   display: flex;
-  padding: 3rem 2rem 2rem 2rem;
+  padding: 3rem 2rem 1rem 2rem;
   background: $mainWhite;
 
   .settings-icon {
@@ -54,6 +54,29 @@
       justify-content: center;
       font-weight: bold;
       margin-top: 1rem;
+    }
+  }
+}
+
+.profile-mirror {
+  display: flex;
+  background: $mainWhite;
+  padding: 0 0 2rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .container {
+    width: 25%;
+    text-align: center;
+    padding: 0 3%;
+  }
+  .gauge {
+    padding: 0 3%;
+    svg {
+      width: 100%;
+      height: 64px;
+    }
+    .gauge-value-text {
+      font-size: 50px;
     }
   }
 }

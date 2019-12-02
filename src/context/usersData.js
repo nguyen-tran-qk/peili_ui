@@ -14,7 +14,12 @@ const USERS_DATA = [
     rewards: [],
     events: [],
     likes: [],
-    tests: [],
+    metrics: {
+      education: 0.1,
+      health: 0.7,
+      social: 0.6,
+      leisure: 0.4,
+    }
   },
   {
     id: 'feda1076-fc8d-4a4a-868d-18b7ffd0e940',
