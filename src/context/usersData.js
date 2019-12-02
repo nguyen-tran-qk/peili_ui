@@ -9,6 +9,12 @@ const USERS_DATA = [
     rewards: [],
     events: [],
     likes: [],
+    metrics: {
+      education: 0.1,
+      health: 0.7,
+      social: 0.6,
+      leisure: 0.4,
+    }
   },
   {
     id: '2',
