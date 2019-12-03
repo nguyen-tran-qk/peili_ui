@@ -175,6 +175,7 @@ class QuestionsPage extends React.Component {
       },
       () => {
         if (this.state.questionIdArray.length === this.state.questionsInLevel.numberOfQuestion) {
+          this.state.questionsInLevel.status = 'done';
           // this.history.push('/tests');
           const openNextLevel = this.state.testResults.find(item => item.level === this.level + 1);
           // console.log('next level', openNextLevel);

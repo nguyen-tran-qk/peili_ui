@@ -5,13 +5,13 @@
   background: $lightDarkGrey;
   border-radius: 10px;
   max-width: 280px;
-  min-height: 200px;
+  min-height: 250px;
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5rem;
   margin-right: 1.5rem;
   color: $mainBlack;
-  cursor: pointer;
+  // cursor: pointer;
 
   .test-levels-title {
     text-transform: capitalize;
@@ -25,23 +25,47 @@
 
   .test-levels-img-container {
     text-align: center;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     max-height: 80px;
 
-    img {
-      width: 50px;
-    }
-
-    .test-levels-status-processing {
+    .test-levels-status {
       display: block;
       width: 50px;
       height: 50px;
-      margin: 1rem auto 0 auto;
-      padding: 1rem 0;
+      margin: 0 auto 0 auto;
+      padding: 0.9rem 0;
       border: 2px solid $primaryColor;
       border-radius: 50%;
       color: $primaryColor;
       font-weight: bold;
+      margin-bottom: 2rem;
+      position: relative;
+
+      &-icons {
+        position: absolute;
+        right: -30%;
+        top: -40%;
+
+        width: 30px;
+        height: 30px;
+        color: $secondaryColor;
+      }
+    }
+
+    .test-levels-footer {
+      border-top: 1px solid $darkGrey;
+      padding-top: 0.9rem;
+
+      &--done {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+      }
+      .test-levels-links {
+        font-size: 2rem;
+        margin-top: 1rem;
+        color: $primaryColor;
+      }
     }
   }
 }
@@ -52,11 +76,4 @@
 
 .processing.test-levels {
   background: $mainWhite;
-
-  .test-levels-img-container {
-    padding: 2.5px 0;
-    img {
-      width: 60px;
-    }
-  }
 }
