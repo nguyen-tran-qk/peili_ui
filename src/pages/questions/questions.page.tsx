@@ -42,9 +42,12 @@ class QuestionsPage extends React.Component {
     questionIdArray: [],
     questionsInLevel: null,
     startQuestionId: null,
+    nextButtonActive: false,
+    backButtonActive: false,
   };
 
   componentDidMount() {
+    this.context.getUserResult();
     this.setState(
       {
         testResults: this.context.userTestResults.testResults,
@@ -65,6 +68,7 @@ class QuestionsPage extends React.Component {
             // startQuestionId: this.getStartQuestionId(this.state.questionsInLevel),
           },
           () => {
+            this.onActiveBackButton(this.state.questionIdArray);
             this.setState({
               questionLoaded: this.getQuestion(this.state.questionsInLevel, this.state.startQuestionId),
             });
@@ -73,6 +77,24 @@ class QuestionsPage extends React.Component {
       }
     );
   }
+
+  // handle next button in question-bars
+  onActiveNextButton = answer => {
+    if (answer) {
+      this.setState({ nextButtonActive: true });
+    } else {
+      this.setState({ nextButtonActive: false });
+    }
+  };
+
+  // handle back button in question-bars
+  onActiveBackButton = questionIdArray => {
+    if (questionIdArray && questionIdArray.length > 0) {
+      this.setState({ backButtonActive: true });
+    } else {
+      this.setState({ backButtonActive: false });
+    }
+  };
 
   // handle change of all question types components
   answerOptions = [0, 0, 0, 0];
@@ -83,13 +105,23 @@ class QuestionsPage extends React.Component {
       e.target.checked
         ? (this.answerOptions[Number(e.target.value) - 1] = Number(e.target.value))
         : (this.answerOptions[Number(e.target.value) - 1] = 0);
-      this.setState({
-        answer: this.answerOptions,
-      });
+      this.setState(
+        {
+          answer: this.answerOptions,
+        },
+        () => {
+          this.onActiveNextButton(this.state.answer);
+        }
+      );
     } else {
-      this.setState({
-        answer: e.target.value,
-      });
+      this.setState(
+        {
+          answer: e.target.value,
+        },
+        () => {
+          this.onActiveNextButton(this.state.answer);
+        }
+      );
     }
   };
 
@@ -172,8 +204,10 @@ class QuestionsPage extends React.Component {
         answer: null,
         // startQuestionId: nextQuestionId,
         questionInLevel: this.state.questionsInLevel,
+        nextButtonActive: false,
       },
       () => {
+        this.onActiveBackButton(this.state.questionIdArray);
         if (this.state.questionIdArray.length === this.state.questionsInLevel.numberOfQuestion) {
           this.state.questionsInLevel.status = 'done';
           // this.history.push('/tests');
@@ -198,8 +232,16 @@ class QuestionsPage extends React.Component {
           questionLoaded: this.getQuestion(this.state.questionsInLevel, prevQuestionId),
         },
         () => {
+          if (this.state.questionIdArray.length === 0) {
+            this.setState({ backButtonActive: false });
+          }
           if (this.state.questionLoaded.answer) {
-            this.setState({ answer: this.state.questionLoaded.answer });
+            this.setState(
+              {
+                answer: this.state.questionLoaded.answer,
+              },
+              () => this.onActiveNextButton(this.state.answer)
+            );
           }
           // console.log('question ID Array:', this.state.questionIdArray);
         }
@@ -290,7 +332,8 @@ class QuestionsPage extends React.Component {
   };
 
   render() {
-    // console.log('All state:', this.state);
+    // console.log(this.state.answer);
+
     return (
       <div className="questions-page">
         {/* <QuestionsContent question={questionLoaded} /> */}
@@ -318,6 +361,8 @@ class QuestionsPage extends React.Component {
         <QuestionsBar
           nextQuestion={this.nextQuestion}
           prevQuestion={this.prevQuestion}
+          nextButtonActive={this.state.nextButtonActive}
+          backButtonActive={this.state.backButtonActive}
           numberOfQuestion={this.state.questionsInLevel && this.state.questionsInLevel.numberOfQuestion}
           numberOfAnswer={this.state.questionIdArray && this.state.questionIdArray.length}
         />

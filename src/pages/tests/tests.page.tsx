@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './tests.styles.scss';
 
 import TestLevels from '../../components/test-levels/test-levels.component';
@@ -9,7 +9,11 @@ import { AuthContext } from '../../context/authContext';
 const Tests = () => {
   // const { user, isLoaded } = useContext(UserContext);
 
-  const { userTestResults } = useContext(AuthContext);
+  const { userTestResults, getUserResult } = useContext(AuthContext);
+
+  useEffect(() => {
+    getUserResult();
+  }, []);
 
   const questions = userTestResults.testResults;
   return (

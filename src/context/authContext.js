@@ -10,13 +10,18 @@ export const AuthContextProvider = props => {
   const [userTestResults, setUserTestResults] = useState(null);
 
   useEffect(() => {
-    console.log('AuthContext useEffect');
-    const getResult = getTestResultsByUser(userId);
-    setUserTestResults(getResult);
+    // console.log('AuthContext useEffect');
+    getUserResult();
   }, [!userTestResults]);
 
+  const getUserResult = () => {
+    const getResult = getTestResultsByUser(userId);
+    setUserTestResults(getResult);
+    return userTestResults;
+  };
+
   if (userTestResults) {
-    return <AuthContext.Provider value={{ userId, userTestResults }}>{props.children}</AuthContext.Provider>;
+    return <AuthContext.Provider value={{ userId, userTestResults, getUserResult }}>{props.children}</AuthContext.Provider>;
   } else {
     return null;
   }

@@ -20,7 +20,12 @@
     color: $darkGrey;
     font-size: 2rem;
     padding: 6px;
-    cursor: pointer;
+
+    &--active {
+      cursor: pointer;
+      border: 1px solid $primaryColor;
+      color: $primaryColor;
+    }
   }
 
   .questions-bar-progress {
