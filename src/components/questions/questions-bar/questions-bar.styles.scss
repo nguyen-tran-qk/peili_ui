@@ -16,16 +16,11 @@
     display: block;
     width: 43px;
     height: 43px;
-    border: 1px solid $darkGrey;
-    color: $darkGrey;
+    border: 1px solid $primaryColor;
+    color: $primaryColor;
     font-size: 2rem;
     padding: 6px;
-
-    &--active {
-      cursor: pointer;
-      border: 1px solid $primaryColor;
-      color: $primaryColor;
-    }
+    cursor: pointer;
   }
 
   .questions-bar-progress {

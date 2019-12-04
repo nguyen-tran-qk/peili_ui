@@ -42,8 +42,10 @@ class QuestionsPage extends React.Component {
     questionIdArray: [],
     questionsInLevel: null,
     startQuestionId: null,
+    acceptButtonActive: false,
     nextButtonActive: false,
     backButtonActive: false,
+    currentIndexInQuestionIdArray: 0,
   };
 
   componentDidMount() {
@@ -68,10 +70,20 @@ class QuestionsPage extends React.Component {
             // startQuestionId: this.getStartQuestionId(this.state.questionsInLevel),
           },
           () => {
-            this.onActiveBackButton(this.state.questionIdArray);
-            this.setState({
-              questionLoaded: this.getQuestion(this.state.questionsInLevel, this.state.startQuestionId),
-            });
+            // this.onActiveBackButton(this.state.questionIdArray);
+            this.onActiveBackButton(this.state.currentIndexInQuestionIdArray);
+            this.setState(
+              {
+                questionLoaded: this.getQuestion(this.state.questionsInLevel, this.state.startQuestionId),
+              },
+              () => {
+                this.setState({ answer: this.state.questionLoaded.answer }, () => {
+                  // this.onActiveNextButton(this.state.answer);
+                  this.onActiveAcceptButton(this.state.answer);
+                });
+                console.log('questionIdArray:', this.state.questionIdArray);
+              }
+            );
           }
         );
       }
@@ -96,6 +108,15 @@ class QuestionsPage extends React.Component {
     }
   };
 
+  // handle accept button
+  onActiveAcceptButton = answer => {
+    if (answer && answer > '0') {
+      this.setState({ acceptButtonActive: true });
+    } else {
+      this.setState({ acceptButtonActive: false });
+    }
+  };
+
   // handle change of all question types components
   answerOptions = [0, 0, 0, 0];
   handleChange = e => {
@@ -110,7 +131,8 @@ class QuestionsPage extends React.Component {
           answer: this.answerOptions,
         },
         () => {
-          this.onActiveNextButton(this.state.answer);
+          // this.onActiveNextButton(this.state.answer);
+          this.onActiveAcceptButton(this.state.answer);
         }
       );
     } else {
@@ -119,7 +141,8 @@ class QuestionsPage extends React.Component {
           answer: e.target.value,
         },
         () => {
-          this.onActiveNextButton(this.state.answer);
+          // this.onActiveNextButton(this.state.answer);
+          this.onActiveAcceptButton(this.state.answer);
         }
       );
     }
@@ -193,43 +216,24 @@ class QuestionsPage extends React.Component {
 
   // get and show the next question
   nextQuestion = () => {
-    const nextQuestionId = this.getNextQuestionId(this.state.questionLoaded);
-    this.addTheAnswerAndPoints();
-    this.state.questionsInLevel.startQuestionId = nextQuestionId;
-    this.state.questionsInLevel.questionIdArray = [...this.state.questionIdArray, this.state.questionLoaded.id];
-    this.setState(
-      {
-        questionIdArray: [...this.state.questionIdArray, this.state.questionLoaded.id],
-        questionLoaded: this.getQuestion(this.state.questionsInLevel, nextQuestionId),
-        answer: null,
-        // startQuestionId: nextQuestionId,
-        questionInLevel: this.state.questionsInLevel,
-        nextButtonActive: false,
-      },
-      () => {
-        this.onActiveBackButton(this.state.questionIdArray);
-        if (this.state.questionIdArray.length === this.state.questionsInLevel.numberOfQuestion) {
-          this.state.questionsInLevel.status = 'done';
-          // this.history.push('/tests');
-          const openNextLevel = this.state.testResults.find(item => item.level === this.level + 1);
-          // console.log('next level', openNextLevel);
-          openNextLevel.status = '0';
-          this.syncStorage();
-          this.history.push('/tests-done');
-        }
-      }
-    );
+    console.log('next');
+    this.setState({
+      questionLoaded: this.getQuestion(this.state.questionsInLevel, this.state.questionIdArray[this.state.currentIndexInQuestionIdArray]),
+    });
   };
+
   // get and show prev question
   prevQuestion = () => {
     if (this.state.questionIdArray.length > 0) {
       this.removeTheAnswerAndPoints();
-      const prevQuestionId = this.state.questionIdArray.pop();
-      // console.log('prev question id', prevQuestionId);
+      // const prevQuestionId = this.state.questionIdArray.pop();
+      const index = this.state.currentIndexInQuestionIdArray - 1;
+      const prevQuestionId = this.state.questionIdArray[index];
       this.setState(
         {
           questionIdArray: [...this.state.questionIdArray],
           questionLoaded: this.getQuestion(this.state.questionsInLevel, prevQuestionId),
+          currentIndexInQuestionIdArray: index,
         },
         () => {
           if (this.state.questionIdArray.length === 0) {
@@ -247,6 +251,40 @@ class QuestionsPage extends React.Component {
         }
       );
     }
+  };
+
+  // accept the answer and save it to db
+  onAcceptAnswer = () => {
+    const nextQuestionId = this.getNextQuestionId(this.state.questionLoaded);
+    this.addTheAnswerAndPoints();
+    this.state.questionsInLevel.startQuestionId = nextQuestionId;
+    this.state.questionsInLevel.questionIdArray = [...this.state.questionIdArray, this.state.questionLoaded.id];
+    this.setState(
+      {
+        questionIdArray: [...this.state.questionIdArray, this.state.questionLoaded.id],
+
+        questionLoaded: this.getQuestion(this.state.questionsInLevel, nextQuestionId),
+        answer: null,
+        // startQuestionId: nextQuestionId,
+        questionInLevel: this.state.questionsInLevel,
+        // nextButtonActive: false,
+        acceptButtonActive: false,
+      },
+      () => {
+        this.setState({ currentIndexInQuestionIdArray: this.state.questionIdArray.length });
+        this.onActiveBackButton(this.state.questionIdArray);
+        if (this.state.questionIdArray.length === this.state.questionsInLevel.numberOfQuestion) {
+          this.state.questionsInLevel.status = 'done';
+          this.state.questionsInLevel.startQuestionId = this.state.questionIdArray[0];
+          // this.history.push('/tests');
+          const openNextLevel = this.state.testResults.find(item => item.level === this.level + 1);
+          // console.log('next level', openNextLevel);
+          openNextLevel.status = '0';
+          this.syncStorage();
+          this.history.push('/tests-done');
+        }
+      }
+    );
   };
 
   // and the answer and exp point when user click next button
@@ -332,7 +370,7 @@ class QuestionsPage extends React.Component {
   };
 
   render() {
-    // console.log(this.state.answer);
+    console.log(this.state.questionIdArray, this.state.currentIndexInQuestionIdArray);
 
     return (
       <div className="questions-page">
@@ -358,6 +396,13 @@ class QuestionsPage extends React.Component {
             <TypesDate handleChange={this.handleChange} answer={this.state.answer} />
           ) : null}
         </div>
+        {this.state.acceptButtonActive ? (
+          <button className="questions-page-accept-btn questions-page-accept-btn--active" onClick={this.onAcceptAnswer}>
+            Accept
+          </button>
+        ) : (
+          <button className="questions-page-accept-btn">Accept</button>
+        )}
         <QuestionsBar
           nextQuestion={this.nextQuestion}
           prevQuestion={this.prevQuestion}
