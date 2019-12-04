@@ -13,7 +13,7 @@ const HomePage = () => {
         return (
           <div className="homepage">
             {feedData.map((item: any) => {
-              return <HomeCardItems key={item.id} content={item} organization={organizationsData[item.organizationID]} />;
+              return <HomeCardItems key={item.id} content={item} organization={organizationsData[item.organizationID - 1]} />;
             })}
           </div>
         );
