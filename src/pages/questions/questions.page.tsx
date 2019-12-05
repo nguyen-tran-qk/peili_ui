@@ -15,10 +15,13 @@ import QuestionsBar from '../../components/questions/questions-bar/questions-bar
 
 import { AuthContext } from '../../context/authContext';
 import { withRouter } from 'react-router-dom';
+import { throwStatement } from '@babel/types';
 
 class QuestionsPage extends React.Component {
   level = 0;
   history = null;
+
+  nextQuestionId = '';
 
   // startQuestionId = null;
   // questionLoaded = null;
@@ -59,6 +62,7 @@ class QuestionsPage extends React.Component {
         totalSchoolPoint: this.context.userTestResults.totalSchoolPoint,
         totalSocialLifePoint: this.context.userTestResults.totalSocialLifePoint,
         questionsInLevel: this.context.userTestResults.testResults.find(item => item.level === Number(this.level)),
+        currentIndexInQuestionIdArray: 0,
       },
       () => {
         // console.log(this.state.questionsInLevel);
@@ -216,54 +220,120 @@ class QuestionsPage extends React.Component {
 
   // get and show the next question
   nextQuestion = () => {
-    console.log('next');
-    this.setState({
-      questionLoaded: this.getQuestion(this.state.questionsInLevel, this.state.questionIdArray[this.state.currentIndexInQuestionIdArray]),
-    });
+    console.log('next', this.state.currentIndexInQuestionIdArray, this.state.questionIdArray.length);
+    if (this.state.currentIndexInQuestionIdArray < this.state.questionIdArray.length - 1) {
+      this.setState(
+        {
+          currentIndexInQuestionIdArray: this.state.currentIndexInQuestionIdArray + 1,
+        },
+        () => {
+          this.setState(
+            {
+              questionLoaded: this.getQuestion(
+                this.state.questionsInLevel,
+                this.state.questionIdArray[this.state.currentIndexInQuestionIdArray]
+              ),
+            },
+            () => {
+              if (this.state.questionLoaded.answer) {
+                this.setState({
+                  answer: this.state.questionLoaded.answer,
+                });
+              }
+            }
+          );
+        }
+      );
+    } else {
+      this.setState({
+        questionLoaded: this.getQuestion(this.state.questionsInLevel, this.nextQuestionId),
+      });
+    }
   };
 
   // get and show prev question
   prevQuestion = () => {
-    if (this.state.questionIdArray.length > 0) {
-      this.removeTheAnswerAndPoints();
-      // const prevQuestionId = this.state.questionIdArray.pop();
-      const index = this.state.currentIndexInQuestionIdArray - 1;
-      const prevQuestionId = this.state.questionIdArray[index];
+    console.log('back', this.state.currentIndexInQuestionIdArray, this.state.questionIdArray.length);
+    if (this.state.currentIndexInQuestionIdArray > 0) {
       this.setState(
         {
-          questionIdArray: [...this.state.questionIdArray],
-          questionLoaded: this.getQuestion(this.state.questionsInLevel, prevQuestionId),
-          currentIndexInQuestionIdArray: index,
+          currentIndexInQuestionIdArray: this.state.currentIndexInQuestionIdArray - 1,
         },
         () => {
-          if (this.state.questionIdArray.length === 0) {
-            this.setState({ backButtonActive: false });
-          }
-          if (this.state.questionLoaded.answer) {
-            this.setState(
-              {
-                answer: this.state.questionLoaded.answer,
-              },
-              () => this.onActiveNextButton(this.state.answer)
-            );
-          }
-          // console.log('question ID Array:', this.state.questionIdArray);
+          this.setState(
+            {
+              questionLoaded: this.getQuestion(
+                this.state.questionsInLevel,
+                this.state.questionIdArray[this.state.currentIndexInQuestionIdArray]
+              ),
+            },
+            () => {
+              if (this.state.questionLoaded.answer) {
+                this.setState({
+                  answer: this.state.questionLoaded.answer,
+                });
+              }
+            }
+          );
         }
       );
+    } else {
+      // this.setState({
+      //   questionLoaded: this.getQuestion(this.state.questionsInLevel, this.nextQuestionId),
+      // });
     }
+    // if (this.state.questionIdArray.length > 0) {
+    //   this.removeTheAnswerAndPoints();
+    //   // const prevQuestionId = this.state.questionIdArray.pop();
+    //   const index = this.state.currentIndexInQuestionIdArray - 1;
+    //   const prevQuestionId = this.state.questionIdArray[index];
+    //   this.setState(
+    //     {
+    //       questionIdArray: [...this.state.questionIdArray],
+    //       questionLoaded: this.getQuestion(this.state.questionsInLevel, prevQuestionId),
+    //       currentIndexInQuestionIdArray: index,
+    //     },
+    //     () => {
+    //       if (this.state.questionIdArray.length === 0) {
+    //         this.setState({ backButtonActive: false });
+    //       }
+    //       if (this.state.questionLoaded.answer) {
+    //         this.setState(
+    //           {
+    //             answer: this.state.questionLoaded.answer,
+    //           },
+    //           () => this.onActiveNextButton(this.state.answer)
+    //         );
+    //       }
+    //     }
+    //   );
+    // }
   };
 
   // accept the answer and save it to db
   onAcceptAnswer = () => {
-    const nextQuestionId = this.getNextQuestionId(this.state.questionLoaded);
+    console.log('current Id', this.state.currentIndexInQuestionIdArray);
+    let tempQuestionIdArray = [];
+    if (this.state.questionIdArray[this.state.currentIndexInQuestionIdArray] === this.state.questionLoaded.id) {
+      console.log('bang nhau');
+      tempQuestionIdArray = this.state.questionIdArray.slice(0, this.state.currentIndexInQuestionIdArray + 1);
+      console.log('temp array', tempQuestionIdArray);
+      this.state.questionsInLevel.questionIdArray = [...tempQuestionIdArray];
+    } else {
+      tempQuestionIdArray = this.state.questionIdArray;
+      this.state.questionsInLevel.questionIdArray = [...this.state.questionIdArray, this.state.questionLoaded.id];
+    }
+
+    this.nextQuestionId = this.getNextQuestionId(this.state.questionLoaded);
     this.addTheAnswerAndPoints();
-    this.state.questionsInLevel.startQuestionId = nextQuestionId;
-    this.state.questionsInLevel.questionIdArray = [...this.state.questionIdArray, this.state.questionLoaded.id];
+    this.state.questionsInLevel.startQuestionId = this.nextQuestionId;
+    // this.state.questionsInLevel.questionIdArray = [...this.state.questionIdArray, this.state.questionLoaded.id];
+
     this.setState(
       {
-        questionIdArray: [...this.state.questionIdArray, this.state.questionLoaded.id],
-
-        questionLoaded: this.getQuestion(this.state.questionsInLevel, nextQuestionId),
+        // questionIdArray: [...this.state.questionIdArray, this.state.questionLoaded.id],
+        questionIdArray: [...this.state.questionsInLevel.questionIdArray],
+        questionLoaded: this.getQuestion(this.state.questionsInLevel, this.nextQuestionId),
         answer: null,
         // startQuestionId: nextQuestionId,
         questionInLevel: this.state.questionsInLevel,

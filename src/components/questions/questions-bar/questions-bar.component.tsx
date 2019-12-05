@@ -23,8 +23,8 @@ const QuestionsBar = (props: any) => {
 
   return (
     <div className="questions-bar">
-      {/* <FaArrowLeft className="question-bar-icons " onClick={prevQuestion} /> */}
-      {backBtn}
+      <FaArrowLeft className="question-bar-icons " onClick={prevQuestion} />
+      {/* {backBtn} */}
       <div className="questions-bar-progress">
         <h3>Questions completed</h3>
         <p>
@@ -32,8 +32,8 @@ const QuestionsBar = (props: any) => {
         </p>
         {/* <img src={progessImg} alt="" /> */}
       </div>
-      {nextBtn}
-      {/* <FaArrowRight className="question-bar-icons" onClick={nextQuestion} /> */}
+      {/* {nextBtn} */}
+      <FaArrowRight className="question-bar-icons" onClick={nextQuestion} />
     </div>
   );
 };
