@@ -3,4 +3,14 @@
 .homepage {
   padding: 1.5rem 1.5rem 4.5rem 1.5rem;
   background: $mainWhite;
+
+  @media screen and (min-width: 560px) {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 560px) and (max-width: 920px) {
+    grid-template-columns: 45% 45%;
+  }
 }

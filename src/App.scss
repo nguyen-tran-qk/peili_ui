@@ -1,2 +1,6 @@
 @import '~material-design-icons/iconfont/material-icons.css';
 @import "~react-vis/dist/style";
+
+.App:not(.auth-view) {
+    margin-bottom: 64px;
+}

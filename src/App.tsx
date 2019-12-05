@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter, RouteComponentProps } from 'react-router-dom';
 
 import Header from './components/header/header.component';
 import HomePage from './pages/home/home.page';
@@ -21,9 +21,17 @@ import TabBar from './components/tabbar/tabbar.components';
 
 import './App.scss';
 
-const App: React.FC = () => {
+const authRoutes = ['/login', '/register'];
+
+interface AppProps extends RouteComponentProps, React.Props<any> {}
+
+const App: React.FC = (props: AppProps) => {
+  let classNames = 'App';
+  if (props.location && authRoutes.includes(props.location.pathname)) {
+    classNames += ' auth-view';
+  }
   return (
-    <div className="App">
+    <div className={classNames}>
       <Header />
 
       <Switch>
@@ -49,4 +57,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default withRouter(App);

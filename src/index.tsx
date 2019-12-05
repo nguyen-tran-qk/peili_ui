@@ -8,15 +8,19 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { PeiliProvider } from './context/context';
 
+import { UserContextProvider } from './context/userContext';
+
 import { AuthContextProvider } from './context/authContext';
 
 ReactDOM.render(
   <AuthContextProvider>
-    <PeiliProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </PeiliProvider>
+    <UserContextProvider>
+      <PeiliProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PeiliProvider>
+    </UserContextProvider>
   </AuthContextProvider>,
   document.getElementById('root')
 );
