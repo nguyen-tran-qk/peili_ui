@@ -1,11 +1,19 @@
 import React from 'react';
 import './questions-bar.styles.scss';
 
-// import progessImg from '../../../assets/images/ProgressBar.png';
+import QuestionsBarProgress from './questions-bar-progress/questions-bar-progress.component';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const QuestionsBar = (props: any) => {
-  const { nextQuestion, prevQuestion, numberOfQuestion, numberOfAnswer, nextButtonActive, backButtonActive } = props;
+  const {
+    nextQuestion,
+    prevQuestion,
+    numberOfQuestion,
+    numberOfAnswer,
+    nextButtonActive,
+    backButtonActive,
+    currentIndexInQuestionIdArray,
+  } = props;
 
   let nextBtn = null;
   let backBtn = null;
@@ -25,12 +33,15 @@ const QuestionsBar = (props: any) => {
     <div className="questions-bar">
       {/* <FaArrowLeft className="question-bar-icons " onClick={prevQuestion} /> */}
       {backBtn}
-      <div className="questions-bar-progress">
-        <h3>Questions completed</h3>
-        <p>
-          {numberOfAnswer}/{numberOfQuestion}
-        </p>
-        {/* <img src={progessImg} alt="" /> */}
+      <div className="questions-bar-content">
+        <h3>
+          Questions completed {numberOfAnswer}/{numberOfQuestion}
+        </h3>
+        <QuestionsBarProgress
+          numberOfAnswer={numberOfAnswer}
+          numberOfQuestion={numberOfQuestion}
+          currentIndexInQuestionIdArray={currentIndexInQuestionIdArray}
+        />
       </div>
       {nextBtn}
       {/* <FaArrowRight className="question-bar-icons" onClick={nextQuestion} /> */}

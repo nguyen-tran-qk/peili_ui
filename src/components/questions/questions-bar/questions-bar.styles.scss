@@ -28,13 +28,14 @@
     }
   }
 
-  .questions-bar-progress {
+  .questions-bar-content {
     text-align: center;
+    width: calc(100vw - 150px);
 
     h3 {
       color: $darkGrey;
-      margin-bottom: 5px;
-      font-size: 1rem;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
     }
 
     p {
