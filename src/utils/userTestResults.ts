@@ -7,16 +7,17 @@ export const getTestResultsByUser = (userId: string) => {
   if (userTestResults) {
     return userTestResults;
   } else {
-    const questions = [...QUESTIONS_DATA];
+    let questions = [...QUESTIONS_DATA];
 
     // get the number of questions in level
     if (questions) {
-      questions.map(question => {
+      questions = questions.map(question => {
         const set = new Set();
-        question.questions.map(item => {
+        question.questions.forEach(item => {
           set.add(item.nextQuestion.defaultNextQuestion);
         });
         question.numberOfQuestion = set.size;
+        return question;
       });
     }
 
