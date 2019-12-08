@@ -12,9 +12,8 @@ import TypesDate from '../../components/questions/question-types/question-types-
 
 import QuestionsBar from '../../components/questions/questions-bar/questions-bar.component';
 
-import { AuthContext } from '../../context/authContext';
+import { UserContext } from '../../context/userContext';
 import { withRouter } from 'react-router-dom';
-import { throwStatement } from '@babel/types';
 
 class QuestionsPage extends React.Component {
   level = 0;
@@ -28,7 +27,7 @@ class QuestionsPage extends React.Component {
     this.history = props.history;
     this.level = Number(props.match.params.level);
   }
-  static contextType = AuthContext;
+  static contextType = UserContext;
   state = {
     testResults: [],
     totalExp: 0,
@@ -48,15 +47,15 @@ class QuestionsPage extends React.Component {
   };
 
   componentDidMount() {
-    this.context.getUserResult();
+    this.context.setUpUserTestResults();
     this.setState(
       {
         testResults: this.context.userTestResults.testResults,
-        totalExp: this.context.userTestResults.totalExp,
-        totalFreeTimePoint: this.context.userTestResults.totalFreeTimePoint,
-        totalHealthPoint: this.context.userTestResults.totalHealthPoint,
-        totalSchoolPoint: this.context.userTestResults.totalSchoolPoint,
-        totalSocialLifePoint: this.context.userTestResults.totalSocialLifePoint,
+        totalExp: this.context.userTestResults.totalExp || 0,
+        totalFreeTimePoint: this.context.userTestResults.totalFreeTimePoint || 0,
+        totalHealthPoint: this.context.userTestResults.totalHealthPoint || 0,
+        totalSchoolPoint: this.context.userTestResults.totalSchoolPoint || 0,
+        totalSocialLifePoint: this.context.userTestResults.totalSocialLifePoint || 0,
         questionsInLevel: this.context.userTestResults.testResults.find(item => item.level === Number(this.level)),
         currentIndexInQuestionIdArray: 0,
       },
@@ -362,13 +361,13 @@ class QuestionsPage extends React.Component {
   syncStorage = () => {
     const userTestResults = {
       testResults: this.state.testResults,
-      totalExp: this.state.totalExp,
-      totalFreeTimePoint: this.state.totalFreeTimePoint,
-      totalHealthPoint: this.state.totalHealthPoint,
-      totalSchoolPoint: this.state.totalSchoolPoint,
-      totalSocialLifePoint: this.state.totalSocialLifePoint,
+      totalExp: this.state.totalExp || 0,
+      totalFreeTimePoint: this.state.totalFreeTimePoint || 0,
+      totalHealthPoint: this.state.totalHealthPoint || 0,
+      totalSchoolPoint: this.state.totalSchoolPoint || 0,
+      totalSocialLifePoint: this.state.totalSocialLifePoint || 0,
     };
-    localStorage.setItem(this.context.userId, JSON.stringify(userTestResults));
+    localStorage.setItem(this.context.user.id, JSON.stringify(userTestResults));
   };
 
   // add 1 point to category point if the question have category type

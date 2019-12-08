@@ -3,16 +3,14 @@ import './tests.styles.scss';
 
 import TestLevels from '../../components/test-levels/test-levels.component';
 
-// import { UserContext } from '../../context/userContext';
-import { AuthContext } from '../../context/authContext';
+import { UserContext } from '../../context/userContext';
 
 const Tests = () => {
-  // const { user, isLoaded } = useContext(UserContext);
 
-  const { userTestResults, getUserResult } = useContext(AuthContext);
+  const { userTestResults, setUpUserTestResults } = useContext(UserContext);
 
   useEffect(() => {
-    getUserResult();
+    setUpUserTestResults();
   }, []);
 
   const questions = userTestResults.testResults;

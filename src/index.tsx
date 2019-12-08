@@ -10,18 +10,15 @@ import { PeiliProvider } from './context/context';
 
 import { UserContextProvider } from './context/userContext';
 
-import { AuthContextProvider } from './context/authContext';
 
 ReactDOM.render(
-  <AuthContextProvider>
-    <UserContextProvider>
-      <PeiliProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </PeiliProvider>
-    </UserContextProvider>
-  </AuthContextProvider>,
+  <UserContextProvider>
+    <PeiliProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </PeiliProvider>
+  </UserContextProvider>,
   document.getElementById('root')
 );
 

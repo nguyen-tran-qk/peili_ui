@@ -17,17 +17,17 @@ const QuestionsBar = (props: any) => {
 
   let nextBtn = null;
   let backBtn = null;
-  if (nextButtonActive) {
-    nextBtn = <FaArrowRight className="question-bar-icons question-bar-icons--active" onClick={nextQuestion} />;
-  } else {
-    nextBtn = <FaArrowRight className="question-bar-icons" />;
-  }
+  nextBtn = nextButtonActive ? (
+    <FaArrowRight className="question-bar-icons question-bar-icons--active" onClick={nextQuestion} />
+  ) : (
+    <FaArrowRight className="question-bar-icons" />
+  );
 
-  if (backButtonActive) {
-    backBtn = <FaArrowLeft className="question-bar-icons question-bar-icons--active" onClick={prevQuestion} />;
-  } else {
-    backBtn = <FaArrowLeft className="question-bar-icons" />;
-  }
+  backBtn = backButtonActive ? (
+    <FaArrowLeft className="question-bar-icons question-bar-icons--active" onClick={prevQuestion} />
+  ) : (
+    <FaArrowLeft className="question-bar-icons" />
+  );
 
   return (
     <div className="questions-bar">

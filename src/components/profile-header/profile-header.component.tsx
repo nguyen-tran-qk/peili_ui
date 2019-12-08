@@ -12,7 +12,7 @@ const ProfileHeader = () => {
   return (
     <PeiliUserConsumer>
       {(value: any) => {
-        if (!value) {
+        if (!value || !value.user) {
           return null;
         }
         const { user } = value;

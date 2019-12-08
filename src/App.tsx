@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Switch, withRouter, RouteComponentProps } from 'react-router-dom';
 
 import Header from './components/header/header.component';
@@ -29,6 +29,9 @@ const App: React.FC = (props: AppProps) => {
   let classNames = 'App';
   if (props.location && authRoutes.includes(props.location.pathname)) {
     classNames += ' auth-view';
+  }
+  if (!localStorage['currentUserId'] && !['/login', '/register'].includes(props.location.pathname)) {
+    props.history.push('/login');
   }
   return (
     <div className={classNames}>

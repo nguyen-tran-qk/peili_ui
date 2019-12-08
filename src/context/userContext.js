@@ -1,12 +1,32 @@
 import React, { useState, useEffect, createContext } from 'react';
 import usersData from './usersData';
 import questionsData, { QUESTION_TYPE } from './questionsData';
+import { getTestResultsByUser } from '../utils/userTestResults';
 
 export const UserContext = createContext();
 
 export const UserContextProvider = props => {
+  if (!localStorage.getItem('usersList')) {
+    localStorage.setItem('usersList', JSON.stringify(usersData));
+  }
+  const [usersList, setUsersList] = useState(JSON.parse(localStorage.getItem('usersList')));
+  
+  const setUpUserTestResults = () => {
+    if (user) {
+      setUserTestResults(getTestResultsByUser(user.id));
+    }
+  }
+  
+  const getCurrentUserData = () => {
+    if (localStorage['currentUserId']) {
+      const resultUser = usersList.find(item => item.id === localStorage['currentUserId']);
+      return resultUser;
+    }
+    return null;
+  };
+  
   //get the first user is default. After finish authentication, will be replace the use loged in
-  const [user, setUser] = useState({...usersData[0], questions: questionsData});
+  const [user, setUser] = useState(getCurrentUserData());
   const questions = questionsData;
   const [isLoaded, setIsLoaded] = useState(false);
   const [questionLoaded, setQuestionLoaded] = useState(null);
@@ -15,26 +35,32 @@ export const UserContextProvider = props => {
   const [answerRange, setAnswerRange] = useState(0);
   const [answerTrueFalse, setAnswerTrueFalse] = useState('');
   const [answerOptions, setAnswerOptions] = useState(0);
-  const [usersList, setUsersList] = useState([]);
+  const [userTestResults, setUserTestResults] = useState(user ? getTestResultsByUser(user.id) : null);
 
   useEffect(() => {
-    if (!localStorage.getItem('usersList')) {
-      localStorage.setItem('usersList', JSON.stringify(usersData));
-    } else {
-      setUsersList(JSON.parse(localStorage.getItem('usersList')));
-    }
-  }, []);
+    localStorage.setItem('usersList', JSON.stringify(usersList));
+  }, [usersList]);
 
   useEffect(() => {
-    if (user.questions) {
-      user.questions.forEach(question => {
-        let set = new Set();
-        question.questions.forEach(item => {
-          set.add(item.nextQuestion.defaultNextQuestion);
-        });
-        question.numberOfQuestion = set.size;
-      });
-      setIsLoaded(true);
+    if (user) {
+      if (user.questions) {
+        // user.questions.forEach(question => {
+        //   let set = new Set();
+        //   question.questions.forEach(item => {
+        //     set.add(item.nextQuestion.defaultNextQuestion);
+        //   });
+        //   question.numberOfQuestion = set.size;
+        // });
+        // setIsLoaded(true);
+      } else {
+        const storedQuestions = localStorage[user.id] ? JSON.parse(localStorage[user.id]) : null;
+        setUser({...user, questions: storedQuestions || questionsData});
+        localStorage.setItem('currentUserId', user.id);
+        if (!storedQuestions) {
+          localStorage.setItem([user.id], JSON.stringify(questionsData));
+        }
+        setUserTestResults(getTestResultsByUser(user.id));
+      }
     }
   }, [user]);
 
@@ -123,6 +149,7 @@ export const UserContextProvider = props => {
     <UserContext.Provider
       value={{
         user,
+        setUser,
         substractEXP,
         questions,
         getQuestion,
@@ -143,6 +170,8 @@ export const UserContextProvider = props => {
         resetState,
         usersList,
         setUsersList,
+        userTestResults,
+        setUpUserTestResults,
       }}
     >
       {props.children}

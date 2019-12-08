@@ -36,6 +36,12 @@ const USERS_DATA = [
     event: [],
     likes: [],
     tests: [],
+    metrics: {
+      education: 0,
+      health: 0,
+      social: 0,
+      leisure: 0,
+    },
   },
 ];
 
