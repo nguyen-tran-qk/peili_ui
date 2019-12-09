@@ -1,7 +1,7 @@
 import React from 'react';
 import './tabbar.styles.scss';
 
-import { FaHome, FaSignal, FaRegCommentAlt, FaUser } from 'react-icons/fa';
+import { FaHome, FaSignal, FaUsers, FaUser } from 'react-icons/fa';
 
 import { Link, withRouter } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ const TabBar = (props: any) => {
       </div>
       <div className={`tabbar-item ${path === '/organizations' || path.includes('/organizations') ? 'tabbar-active' : null}`}>
         <Link to="/organizations">
-          <FaRegCommentAlt className="tabbar-icon" />
+          <FaUsers className="tabbar-icon" />
           <h3 className="tabbar-title">Organization</h3>
         </Link>
       </div>
