@@ -19,7 +19,7 @@ const TestLevels = (props: any) => {
     case 'done':
       image = doneImg;
       bcg = 'doneBcg';
-      link = '/questions-review';
+      link = '/quiz-results';
       content = (
         <div className="test-levels-img-container">
           <p className="test-levels-status">

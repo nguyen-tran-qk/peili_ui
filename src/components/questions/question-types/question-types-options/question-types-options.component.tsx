@@ -2,7 +2,7 @@ import React from 'react';
 import './question-types-options.styles.scss';
 
 const TypesOptions = (props: any) => {
-  const { handleChange, answer } = props;
+  const { handleChange, answer, options } = props;
 
   return (
     <div className="question-types-options">
@@ -16,7 +16,7 @@ const TypesOptions = (props: any) => {
           checked={(answer && answer[0] === 1) || false}
           onChange={handleChange}
         />
-        <label htmlFor="radio-options">Option 1</label>
+        <label htmlFor="radio-options">{options[0] && options[0]}</label>
       </div>
       <div className="question-types-options-group">
         <input
@@ -28,7 +28,7 @@ const TypesOptions = (props: any) => {
           checked={(answer && answer[1] === 2) || false}
           onChange={handleChange}
         />
-        <label htmlFor="radio-options">Option 2</label>
+        <label htmlFor="radio-options">{options[1] && options[1]}</label>
       </div>
       <div className="question-types-options-group">
         <input
@@ -40,7 +40,7 @@ const TypesOptions = (props: any) => {
           checked={(answer && answer[2] === 3) || false}
           onChange={handleChange}
         />
-        <label htmlFor="radio-options">Option 3</label>
+        <label htmlFor="radio-options">{options[2] && options[2]}</label>
       </div>
       <div className="question-types-options-group">
         <input
@@ -52,7 +52,7 @@ const TypesOptions = (props: any) => {
           checked={(answer && answer[3] === 4) || false}
           onChange={handleChange}
         />
-        <label htmlFor="radio-options">Option 4</label>
+        <label htmlFor="radio-options">{options[3] && options[3]}</label>
       </div>
     </div>
   );

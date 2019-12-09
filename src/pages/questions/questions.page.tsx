@@ -431,7 +431,11 @@ class QuestionsPage extends React.Component {
             <TypesText handleChange={this.handleChange} answer={this.state.answer} />
           ) : null}
           {this.state.questionLoaded && this.state.questionLoaded.type === 'options' ? (
-            <TypesOptions handleChange={this.handleChange} answer={this.state.answer} />
+            <TypesOptions
+              handleChange={this.handleChange}
+              answer={this.state.answer}
+              options={this.state.questionLoaded.questions.withOptions}
+            />
           ) : null}
           {this.state.questionLoaded && this.state.questionLoaded.type === 'date' ? (
             <TypesDate handleChange={this.handleChange} answer={this.state.answer} />
