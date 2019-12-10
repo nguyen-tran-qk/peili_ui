@@ -72,7 +72,7 @@ class QuestionsPage extends React.Component {
                 questionLoaded: this.getQuestion(this.state.questionsInLevel, this.state.startQuestionId),
               },
               () => {
-                this.setState({ answer: this.state.questionLoaded.answer }, () => {});
+                this.setState({ answer: this.state.questionLoaded.answer });
                 if (this.state.questionsInLevel.status === 'done') {
                   this.setState({ currentIndexInQuestionIdArray: 0, nextButtonActive: true, acceptButtonActive: false });
                 } else {

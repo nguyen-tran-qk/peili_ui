@@ -8,7 +8,7 @@ import { UserContext } from '../../context/userContext';
  * Login page component
  */
 const LoginPage = (props: RouteComponentProps) => {
-  const { usersList, user, setUser } = useContext(UserContext)
+  const { usersList, user, setUser } = useContext(UserContext);
   const [email, setEmail] = useState('');
 
   // find if email exists in users list, then allow to login
