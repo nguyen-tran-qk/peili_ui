@@ -1,44 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# PEILI - MIRROR project (UI implementation) [![Build Status](https://travis-ci.com/nguyenkevtran/peili_ui.svg?branch=develop)](https://travis-ci.com/nguyenkevtran/peili_ui)
+![cover image](https://www.metropolia.fi/fileadmin/_processed_/csm_UnelmienKartta_0e53a65d75.jpg)
 
-## Available Scripts
+## The idea
+**Peili** is a project, initiated and back by Metropolia University of Applied Sciences (Metropolia UAS), to support the life management of young men at risk of exclusion. More information about this project can be read here: https://www.metropolia.fi/tutkimus-kehittaminen-ja-innovaatiot/hankkeet/peili-loydavahvuutesi/
 
-In the project directory, you can run:
+## The team - VNT, and the mission
+We are team VNT, consisting of 3 IT students from Metropolia UAS, with the responsibility to build a progressive web application that serves as a front-end in the **Peili** system. The goal is to provide a back-end independent and reliable proof of concept, but still represent the core features of Peili application coming in the near future.
 
-### `yarn start`
+#### VNT team member:
+* [@tranhuyviet](https://github.com/tranhuyviet)
+* Me - nguyentran
+* [@ductoanthanh](https://github.com/ductoanthanh)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Setup
+To fire this up and run it in development environment:
+1. Clone this repo then `cd` to the repo directory
+2. In terminal, run `npm install` to install dependencies.
+2. Run `npm run start` to start the dev server and the application will be serve at [http://localhost:3000](http://localhost:3000)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+#### Other commands:
+* `npm run test`: to run unit test cases. Unfortunately, we're not having many test cases at the moment.
+* `npm run build`: to make an optimized production build that can be deployed.
 
-### `yarn test`
+## CI/CD
+We use Travis to do the pipelines [https://travis-ci.com/nguyenkevtran/peili_ui](https://travis-ci.com/nguyenkevtran/peili_ui)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Live demo
+We have set up our develop branch as the auto-deploy branch on Heroku. You can see the app live here: [https://peili-vnt.herokuapp.com/](https://peili-vnt.herokuapp.com/)
