@@ -4,3 +4,9 @@
 .App:not(.auth-view) {
     margin-bottom: 64px;
 }
+
+.App.auth-view {
+    .tabbar, header {
+        display: none;
+    }
+}
